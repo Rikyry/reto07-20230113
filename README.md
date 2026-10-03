@@ -40,3 +40,44 @@ El testbench compara las 4096 combinaciones de control y operandos, y
 comprueba 12 casos de registro, habilitacion y reset. Los registros de
 ejecucion estan en `sim/`; las ondas VCD se generan al ejecutar la prueba.
 
+## Tang Primer 25K
+
+El top de la placa es `tang_top_20230113`. Las entradas tienen dos etapas
+de sincronizacion. El reloj de la placa es de 50 MHz en E2.
+
+`sw[12:0]={en,a,b,c,d,A[3:0],B[3:0]}`.
+`led[6:0]={v,u,flag_q,Q[3:0]}`.
+
+El mapa de conexiones esta en `docs/mapa_pines.csv`. Los interruptores
+conectan su entrada a 3,3 V, el reset conecta `rst_n` a GND, y cada LED
+lleva una resistencia de 1 kOhm. Usar `en=0` al ajustar las entradas y
+esperar 0,1 s antes de habilitar.
+
+El proyecto Gowin esta en `fpga/gowin/reto07_20230113/reto07_20230113.gprj`.
+Selecciona GW5A-LV25MG121NC1/I0, revision A, Verilog 2001 y reloj de 20 ns.
+Para reconstruir con Gowin V1.9.11.03 Education:
+
+```powershell
+& 'C:/Gowin/Gowin_V1.9.11.03_Education_x64/IDE/bin/gw_sh.exe' fpga/build.tcl
+```
+
+El bitstream esta en `fpga/bitstream/reto07_20230113.fs` y los informes
+de implementacion en `fpga/reports/`.
+
+## Resultados
+
+La simulacion en Ubuntu comprueba 4096 vectores, 12 casos temporales y
+16408 comparaciones, con cero errores. La prueba del adaptador verifica
+la sincronizacion de entradas, el reset y el orden de los LED.
+
+La implementacion usa 24 LUT, 19 ALU y 33 registros, sin latches.
+Cumple el reloj de 50 MHz, con Fmax estimada de 120,509 MHz y sin
+violaciones de setup o hold.
+
+## Documentacion
+
+`docs/` contiene la tabla de verdad, los mapas de Karnaugh, el circuito
+de control y el mapa de pines. Los archivos temporales y las ondas VCD
+se regeneran; el proyecto, las restricciones y los registros de pruebas
+se conservan en el repositorio.
+

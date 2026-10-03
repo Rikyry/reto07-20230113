@@ -1,0 +1,75 @@
+*** GOWIN Tcl Command Line Console  *** 
+current working directory: C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/fpga/gowin/reto07_20230113
+add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/src/control_logic.v"
+add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/src/datapath.v"
+add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/src/result_register.v"
+add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/src/top_20230113.v"
+add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/src/tang_top_20230113.v"
+add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/fpga/constraints/tang25k.cst"
+add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/fpga/constraints/tang25k.sdc"
+add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/sim/tb_top_20230113.v"
+disable C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/sim/tb_top_20230113.v
+add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/sim/tb_tang_top_20230113.v"
+disable C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/sim/tb_tang_top_20230113.v
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\control_logic.v'
+Analyzing Verilog file 'C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\datapath.v'
+Analyzing Verilog file 'C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\result_register.v'
+Analyzing Verilog file 'C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\top_20230113.v'
+Analyzing Verilog file 'C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\tang_top_20230113.v'
+Compiling module 'tang_top_20230113'("C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\tang_top_20230113.v":2)
+Compiling module 'top_20230113'("C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\top_20230113.v":2)
+Compiling module 'control_logic'("C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\control_logic.v":2)
+Compiling module 'datapath'("C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\datapath.v":2)
+Compiling module 'result_register'("C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\result_register.v":2)
+NOTE  (EX0101) : Current top module is "tang_top_20230113"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\gwsynthesis\reto07_20230113.vg" completed
+[100%] Generate report file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\gwsynthesis\reto07_20230113_syn.rpt.html" completed
+GowinSynthesis finish
+Reading netlist file: "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\gwsynthesis\reto07_20230113.vg"
+Parsing netlist file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\gwsynthesis\reto07_20230113.vg" completed
+Processing netlist completed
+Reading constraint file: "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\constraints\tang25k.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\pnr\reto07_20230113.power.html" completed
+Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\pnr\reto07_20230113.pin.html" completed
+Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\pnr\reto07_20230113.rpt.html" completed
+Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\pnr\reto07_20230113.rpt.txt" completed
+Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\pnr\reto07_20230113.tr.html" completed
+Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\pnr\reto07_20230113.tr" completed
+Sat Oct  3 15:32:01 2026
+

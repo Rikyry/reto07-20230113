@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="480" height="240" preserveAspectRatio="xMinYMin meet" viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="480" height="240"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-240)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="70" y="155" width="145" height="48" rx="5" ry="5" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="78" y="179.0" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,358) scale(1,-1)">control_logic</text>
+			<text x="5" y="179" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,358) scale(1,-1)">a,b,c,d</text>
+			<path d="M 45,180 L 70,180 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="70 180, 65.61209 182.3971, 65.61209 177.6029" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,21%,29%); fill-rule: evenodd;"/>
+			<rect x="260" y="155" width="150" height="48" rx="5" ry="5" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="268" y="179.0" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,358) scale(1,-1)">datapath</text>
+			<path d="M 215,180 L 260,180 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="260 180, 255.6121 182.3971, 255.6121 177.6029" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,21%,29%); fill-rule: evenodd;"/>
+			<text x="228" y="188" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,376) scale(1,-1)">u,v</text>
+			<text x="278" y="225" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,450) scale(1,-1)">A[3:0], B[3:0]</text>
+			<path d="M 335,218 L 335,203 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="335 203, 337.3971 207.3879, 332.6029 207.3879" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,21%,29%); fill-rule: evenodd;"/>
+			<rect x="260" y="55" width="150" height="48" rx="5" ry="5" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="268" y="79.0" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,158) scale(1,-1)">result_register</text>
+			<path d="M 335,155 L 335,103 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="335 103, 337.3971 107.3879, 332.6029 107.3879" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,21%,29%); fill-rule: evenodd;"/>
+			<text x="341" y="122" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,244) scale(1,-1)">Y, flag_comb</text>
+			<text x="85" y="77" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,154) scale(1,-1)">clk, rst, en</text>
+			<path d="M 150,80 L 260,80 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="260 80, 255.6121 82.39713, 255.6121 77.60287" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,21%,29%); fill-rule: evenodd;"/>
+			<path d="M 410,80 L 478,80 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="478 80, 473.6121 82.39713, 473.6121 77.60287" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,21%,29%); fill-rule: evenodd;"/>
+			<text x="415" y="91" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,182) scale(1,-1)">Q, flag_q</text>
+			<text x="12" y="20" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,40) scale(1,-1)">top_20230113 instancia los tres bloques por nombre.</text>
+		</g>
+	</g>
+</svg>

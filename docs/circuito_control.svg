@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="480" height="280" preserveAspectRatio="xMinYMin meet" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="480" height="280"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-280)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="5" y="255" style="font-family: Helvetica; font-size: 13px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,510) scale(1,-1)">Circuito de u</text>
+			<text x="4" y="214" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,428) scale(1,-1)">a</text>
+			<path d="M 15,217 L 78,217 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="4" y="190" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,380) scale(1,-1)">b</text>
+			<path d="M 15,193 L 78,193 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 78 183 L 96 183 C 126 183 126 227 96 227 L 78 227 Z " style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="81" y="202" style="font-family: Helvetica; font-size: 8px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,404) scale(1,-1)">AND</text>
+			<path d="M 119,205 L 153,205 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 153,205 L 153,147 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 153,147 L 165,147 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="4" y="132" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,264) scale(1,-1)">a</text>
+			<path d="M 15,135 L 78,135 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="4" y="108" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,216) scale(1,-1)">d</text>
+			<path d="M 15,111 L 78,111 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 78 101 L 96 101 C 126 101 126 145 96 145 L 78 145 Z " style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="81" y="120" style="font-family: Helvetica; font-size: 8px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,240) scale(1,-1)">AND</text>
+			<path d="M 119,123 L 153,123 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 153,123 L 153,135 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 153,135 L 165,135 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="4" y="50" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,100) scale(1,-1)">b</text>
+			<path d="M 15,53 L 27,53 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="27 47, 27 59, 39 53" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<circle cx="42" cy="53" r="3" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 45,53 L 78,53 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="4" y="26" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,52) scale(1,-1)">c</text>
+			<path d="M 15,29 L 78,29 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 78 19 L 96 19 C 126 19 126 63 96 63 L 78 63 Z " style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="81" y="38" style="font-family: Helvetica; font-size: 8px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,76) scale(1,-1)">AND</text>
+			<path d="M 119,41 L 153,41 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 153,41 L 153,123 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 153,123 L 165,123 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 163 107 C 190 107 203 120 214 135 C 203 150 190 163 163 163 C 175 144 175 126 163 107 Z " style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="177" y="132" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,264) scale(1,-1)">OR</text>
+			<path d="M 214,135 L 236,135 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="236 135, 231.6121 137.3971, 231.6121 132.6029" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,21%,29%); fill-rule: evenodd;"/>
+			<text x="231" y="143" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,286) scale(1,-1)">u</text>
+			<text x="250" y="255" style="font-family: Helvetica; font-size: 13px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,510) scale(1,-1)">Circuito de v</text>
+			<text x="249" y="214" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,428) scale(1,-1)">a</text>
+			<path d="M 260,217 L 272,217 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="272 211, 272 223, 284 217" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<circle cx="287" cy="217" r="3" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 290,217 L 323,217 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="249" y="190" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,380) scale(1,-1)">d</text>
+			<path d="M 260,193 L 323,193 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 323 183 L 341 183 C 371 183 371 227 341 227 L 323 227 Z " style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="326" y="202" style="font-family: Helvetica; font-size: 8px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,404) scale(1,-1)">AND</text>
+			<path d="M 364,205 L 398,205 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 398,205 L 398,147 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 398,147 L 410,147 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="249" y="132" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,264) scale(1,-1)">b</text>
+			<path d="M 260,135 L 323,135 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="249" y="108" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,216) scale(1,-1)">c</text>
+			<path d="M 260,111 L 272,111 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="272 105, 272 117, 284 111" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<circle cx="287" cy="111" r="3" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 290,111 L 323,111 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 323 101 L 341 101 C 371 101 371 145 341 145 L 323 145 Z " style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="326" y="120" style="font-family: Helvetica; font-size: 8px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,240) scale(1,-1)">AND</text>
+			<path d="M 364,123 L 398,123 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 398,123 L 398,135 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 398,135 L 410,135 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="249" y="50" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,100) scale(1,-1)">c</text>
+			<path d="M 260,53 L 323,53 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="249" y="26" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,52) scale(1,-1)">d</text>
+			<path d="M 260,29 L 323,29 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 323 19 L 341 19 C 371 19 371 63 341 63 L 323 63 Z " style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="326" y="38" style="font-family: Helvetica; font-size: 8px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,76) scale(1,-1)">AND</text>
+			<path d="M 364,41 L 398,41 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 398,41 L 398,123 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 398,123 L 410,123 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 408 107 C 435 107 448 120 459 135 C 448 150 435 163 408 163 C 420 144 420 126 408 107 Z " style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="422" y="132" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,264) scale(1,-1)">OR</text>
+			<path d="M 459,135 L 481,135 Z" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="481 135, 476.6121 137.3971, 476.6121 132.6029" style="stroke: rgb(8%,21%,29%); stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,21%,29%); fill-rule: evenodd;"/>
+			<text x="476" y="143" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,21%,29%); stroke:none;" transform="translate(0,286) scale(1,-1)">v</text>
+		</g>
+	</g>
+</svg>
