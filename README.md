@@ -14,3 +14,9 @@ El control usa `u = ab + ad + !bc` y `v = !ad + cd + b!c`.
 El selector es `{v,u}`: 00 RESTA, 01 SUMA, 10 XOR y 11 MAYOR.
 Los indicadores son prestamo, acarreo, paridad impar y empate.
 
+## Registro
+
+`result_register.v` guarda `Q[3:0]` y `flag_q` en el flanco ascendente
+cuando `en=1`. El reset es asincrono y activo en 1. Con `en=0`, el registro
+conserva su valor.
+
