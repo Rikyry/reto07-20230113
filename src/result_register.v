@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module result_register(
     input wire clk, rst, en,
     input wire [3:0] Y,

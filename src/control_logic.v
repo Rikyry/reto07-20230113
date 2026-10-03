@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module control_logic(
     input wire a, b, c, d,
     output wire u, v

@@ -3,7 +3,7 @@
 - Nombre: Riky Ramos
 - Matricula: 20230113
 - Reto: 07, Sistemas Digitales
-- Descripcion: Unidad Verilog que selecciona RESTA, SUMA, XOR o MAYOR sobre dos datos de cuatro bits y genera el indicador de cada operacion.
+- Descripcion: Unidad Verilog que selecciona RESTA, SUMA, XOR o MAYOR sobre dos datos de cuatro bits y registra el resultado y su indicador.
 - Placa: Tang Primer 25K, GW5A-LV25MG121NC1/I0.
 - Repositorio: [repositorio publico](https://github.com/Rikyry/reto07-20230113), accesible al docente sin invitacion.
 
@@ -19,4 +19,10 @@ Los indicadores son prestamo, acarreo, paridad impar y empate.
 `result_register.v` guarda `Q[3:0]` y `flag_q` en el flanco ascendente
 cuando `en=1`. El reset es asincrono y activo en 1. Con `en=0`, el registro
 conserva su valor.
+
+## Conexion del sistema
+
+`top_20230113.v` conecta el control, las operaciones y el registro.
+`Y` y `flag_comb` son combinacionales; `Q` y `flag_q` son las salidas
+almacenadas. El sistema usa un solo reloj.
 
