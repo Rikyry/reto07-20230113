@@ -1,0 +1,8 @@
+*.vvp
+*.vcd
+*.tmp
+*.bak
+__pycache__/
+fpga/gowin/**/impl/*
+!fpga/gowin/**/impl/*_process_config.json
+fpga/gowin/**/*.gprj.user
