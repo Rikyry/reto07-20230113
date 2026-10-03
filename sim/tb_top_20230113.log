@@ -1,0 +1,17 @@
+VCD info: dumpfile sim/top_20230113.vcd opened for output.
+COMBINATIONAL: vectors=4096 comparisons=16384 errors=0
+PASS temporal 1: assert reset between edges
+PASS temporal 2: reset has priority over enable at edge
+PASS temporal 3: release reset without capture edge
+PASS temporal 4: capture RESTA with borrow
+PASS temporal 5: capture SUMA with carry
+PASS temporal 6: capture XOR with odd parity
+PASS temporal 7: capture MAYOR with tie A=B=15
+PASS temporal 8: retain while disabled despite new data
+PASS temporal 9: enable again and capture
+PASS temporal 10: change data between edges with enable high
+PASS temporal 11: async reset clears nonzero Q between edges
+PASS temporal 12: capture again after reset, B=0
+SUMMARY vectors=4096 temporal=12 total_comparisons=16408 errors=0
+PASS tb_top_20230113
+sim/tb_top_20230113.v:91: $finish called at 8371000 (1ps)

@@ -26,3 +26,17 @@ conserva su valor.
 `Y` y `flag_comb` son combinacionales; `Q` y `flag_q` son las salidas
 almacenadas. El sistema usa un solo reloj.
 
+## Simulacion en Ubuntu
+
+Abrir la carpeta en VS Code con la extension WSL y seleccionar Ubuntu.
+Se necesitan Icarus Verilog (`iverilog` y `vvp`). Ejecutar la tarea
+**Simular Reto 07 en Ubuntu**, o desde la terminal Ubuntu:
+
+```bash
+bash sim/run_tests.sh
+```
+
+El testbench compara las 4096 combinaciones de control y operandos, y
+comprueba 12 casos de registro, habilitacion y reset. Los registros de
+ejecucion estan en `sim/`; las ondas VCD se generan al ejecutar la prueba.
+
