@@ -70,6 +70,11 @@ La simulacion en Ubuntu comprueba 4096 vectores, 12 casos temporales y
 16408 comparaciones, con cero errores. La prueba del adaptador verifica
 la sincronizacion de entradas, el reset y el orden de los LED.
 
+Las dos pruebas se ejecutaron con la tarea de VS Code en WSL Ubuntu.
+La [captura de la simulacion](evidencias/simulacion_ubuntu_vscode.jpg)
+muestra los resultados y la finalizacion de la tarea. La version de
+Ubuntu y del simulador esta registrada en `sim/entorno_ubuntu.txt`.
+
 La implementacion usa 24 LUT, 19 ALU y 33 registros, sin latches.
 Cumple el reloj de 50 MHz, con Fmax estimada de 120,509 MHz y sin
 violaciones de setup o hold.
