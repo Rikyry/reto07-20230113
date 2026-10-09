@@ -52,16 +52,16 @@ L1–L8 indican el orden previsto según la relación de pines proporcionada par
 
 | Orden de lectura | LED del esquema | Señal | Pin de J6 | Bola FPGA |
 |---|---|---|---|---|
-| L1 | D5 | Q[3], peso 8 | 6 | J5 |
-| L2 | D6 | Q[2], peso 4 | 5 | H5 |
-| L3 | D8 | Q[1], peso 2 | 7 | H8 |
-| L4 | D7 | Q[0], peso 1 | 8 | H7 |
+| L1 | D5 | Q[0], peso 1 | 6 | J5 |
+| L2 | D6 | Q[1], peso 2 | 5 | H5 |
+| L3 | D8 | Q[2], peso 4 | 7 | H8 |
+| L4 | D7 | Q[3], peso 8 | 8 | H7 |
 | L5 | D3 | flag_q | 9 | G7 |
 | L6 | D4 | u | 10 | G8 |
 | L7 | D1 | v | 11 | F5 |
 | L8 | D2 | en_led | 12 | G5 |
 
-Leer los ocho LED como **Q3 Q2 Q1 Q0 flag u v en**. L1–L4 representan el resultado binario, con pesos 8,4,2,1. L5 muestra préstamo, acarreo, paridad o empate según la operación. L6=u, L7=v y L8=en. El Dock usa H8 en el contacto de L3, según el esquema oficial; H6 no se utiliza en este conector.
+Leer los ocho LED como **Q0 Q1 Q2 Q3 flag u v en**. L1–L4 representan el resultado con pesos 1,2,4,8. Para escribir el número binario de mayor a menor peso, usar **L4 L3 L2 L1**. L5 muestra préstamo, acarreo, paridad o empate según la operación. L6=u, L7=v y L8=en. El Dock usa H8 en el contacto de L3, según el esquema oficial; H6 no se utiliza en este conector.
 
 ## Comprobación
 

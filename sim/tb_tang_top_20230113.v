@@ -4,7 +4,7 @@ module tb_tang_top_20230113;
     reg [12:0] sw=13'h1fff;
     wire [7:0] led;
     wire [7:0] panel_on;
-    assign panel_on=~{led[3],led[2],led[1],led[0],led[4],led[5],led[6],led[7]};
+    assign panel_on=~{led[0],led[1],led[2],led[3],led[4],led[5],led[6],led[7]};
     tang_top_20230113 dut(.clk(clk),.sw(sw),.rst_n(rst_n),.led(led));
     always #10 clk=~clk;
     initial begin
@@ -29,7 +29,7 @@ module tb_tang_top_20230113;
         @(negedge clk); sw[12]=0;
         repeat(3) @(posedge clk); #1;
         if(led!==8'h08) $fatal(1,"capture max tie");
-        if(panel_on!==8'b01111111) $fatal(1,"L1-L4 binary 7, tie and control");
+        if(panel_on!==8'b11101111) $fatal(1,"L1-L4 weights 1 2 4 8, result 7 and tie");
         @(negedge clk); #2; rst_n=0; #1;
         if(led[4:0]!==5'b11111) $fatal(1,"reset assertion must be asynchronous");
         if(panel_on!==8'b00000111) $fatal(1,"reset clears L1-L5 only");
@@ -46,16 +46,16 @@ module tb_tang_top_20230113;
             $fatal(1,"0 minus 0, only G5 enable on");
         @(negedge clk); sw[4]=0;
         repeat(3) @(posedge clk); #1;
-        if(led!==8'h7e || panel_on!==8'b00010001)
-            $fatal(1,"G10 grounded: 1 minus 0, H7 result and G5 enable on");
+        if(led!==8'h7e || panel_on!==8'b10000001)
+            $fatal(1,"G10 grounded: 1 minus 0, J5 result and G5 enable on");
         @(negedge clk); sw[12]=1;
         repeat(3) @(posedge clk); #1;
-        if(led!==8'hfe || panel_on!==8'b00010000)
+        if(led!==8'hfe || panel_on!==8'b10000000)
             $fatal(1,"enable off must retain result 1");
         @(negedge clk); rst_n=0; #1;
         if(led!==8'hff || panel_on!==8'h00)
             $fatal(1,"reset with enable off must clear result");
-        $display("PASS board adapter: female PMOD inputs, physical pin mapping, synchronization, retention, reset, 0-0 and 1-0 with G10/E11");
+        $display("PASS board adapter: J5 Q0, H5 Q1, H8 Q2, H7 Q3; synchronization, retention, reset, 0-0 and 1-0 with G10/E11");
         $finish;
     end
     initial begin #10000; $fatal(1,"timeout"); end

@@ -7,11 +7,11 @@ Conectar GND de la FPGA al riel negativo de la protoboard. Abrir los trece inter
 | Paso | Entradas conectadas a GND | abcd | A | B | en | Q | flag | u | v | Salidas encendidas esperadas |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Cero | E11 | 0000 | 0000 | 0000 | 1 | 0000 | 0 | 0 | 0 | G5, enable |
-| Uno | E11 y G10 | 0000 | 0001 | 0000 | 1 | 0001 | 0 | 0 | 0 | G5, enable; H7, Q0 |
-| Retención | Solo G10, después del paso Uno | 0000 | 0001 | 0000 | 0 | 0001 | 0 | 0 | 0 | H7, Q0 |
+| Uno | E11 y G10 | 0000 | 0001 | 0000 | 1 | 0001 | 0 | 0 | 0 | G5, enable; J5, Q0 |
+| Retención | Solo G10, después del paso Uno | 0000 | 0001 | 0000 | 0 | 0001 | 0 | 0 | 0 | J5, Q0 |
 
 En el paso Uno, las otras entradas C11, C10, B11, B10, D11, D10, G11, L5, K5, K11 y L11 permanecen abiertas. E10 también permanece abierto.
 
-El paso Uno hace RESTA, 1 − 0 = 1. En el orden lógico Q3 Q2 Q1 Q0 flag u v en, la lectura es 00010001. El orden visual de los LED debe identificarse en el módulo físico: el LED enable es el que quedaba fijo en el diagnóstico cuando E11 estaba unido a GND. Al agregar G10 debe encenderse un segundo LED. Esta comprobación no depende de contar los LED desde un extremo concreto.
+El paso Uno hace RESTA, 1 − 0 = 1. Los pines J5, H5, H8 y H7 muestran los pesos 1,2,4 y 8. En el orden L1–L8 previsto Q0 Q1 Q2 Q3 flag u v en, la lectura es 10000001. El orden visual debe contrastarse en el módulo físico: el LED enable es el que quedaba fijo en el diagnóstico cuando E11 estaba unido a GND. Al agregar G10 debe encenderse J5, identificado para el bit de valor 1.
 
 El testbench del adaptador comprueba estos pasos y el borrado por reset con enable desactivado. Los resultados físicos están pendientes de registrar; no deben sustituirse por las expectativas de la tabla.
