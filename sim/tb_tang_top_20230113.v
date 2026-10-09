@@ -33,7 +33,7 @@ module tb_tang_top_20230113;
         if(dut.rst!==0 || led[4:0]!==5'b11111) $fatal(1,"reset release captures prematurely");
         @(posedge clk); #1;
         if(led[4:0]!==5'b01000) $fatal(1,"capture after synchronized reset release");
-        $display("PASS board adapter: active-low J3 switches, LEDx8 polarity and eight outputs, synchronization, stored Q/flag and reset");
+        $display("PASS board adapter: active-low female PMOD inputs, LEDx8 polarity and eight outputs, synchronization, stored Q/flag and reset");
         $finish;
     end
     initial begin #10000; $fatal(1,"timeout"); end

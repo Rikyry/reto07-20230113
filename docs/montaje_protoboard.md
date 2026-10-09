@@ -1,10 +1,10 @@
 # Montaje del Reto 07 con Sipeed LED×8
 
-Materiales: Tang Primer 25K con Dock 60033, módulo Sipeed LED×8, protoboard, dos DIP de ocho interruptores, un pulsador, 15 jumpers macho–hembra y 14 jumpers macho–macho. Si el riel negativo está dividido, agregar un jumper para unir sus mitades.
+Materiales: Tang Primer 25K con Dock 60033, módulo Sipeed LED×8, protoboard, dos DIP de ocho interruptores, un pulsador, 29 jumpers macho–macho. Si el riel negativo está dividido, agregar un jumper para unir sus mitades.
 
 Conectar el LED×8 directamente al PMOD **J6**, con la placa apagada. Alinear los 12 contactos y las marcas de alimentación del módulo y del Dock; identificar el pin 1 antes de insertarlo. El módulo ya contiene las resistencias de los LED y se alimenta desde la placa a 3,3 V.
 
-Las entradas salen del conector **J3**, que tiene pines machos. La punta hembra de cada jumper macho–hembra entra en J3; la punta macho entra en la protoboard. Conectar **J3-12 (GND)** al riel negativo. **J3-11 es +5 V y no se usa.**
+Las entradas salen de los conectores **hembra J4 y J5**. Una punta macho del jumper entra en el agujero del pin indicado en la placa; la otra entra en la protoboard. Conectar **GND de J4, pin 3**, al riel negativo con otro jumper macho–macho. GND del pin 4 de J4, o de los pines 3/4 de J5, es equivalente. No hace falta conectar los pines de 3,3 V para las entradas.
 
 Cada interruptor conecta una entrada a GND al cerrarse. El pull-up interno mantiene el pin en alto cuando está abierto; el adaptador Verilog invierte ese nivel. Por tanto, **abierto = 0 lógico y cerrado = 1 lógico**. No se necesitan resistencias externas en las entradas ni alimentar el riel positivo.
 
@@ -14,33 +14,33 @@ Cada interruptor conecta una entrada a GND al cerrarse. El pull-up interno manti
 
 Este ejemplo usa una protoboard con columnas A–E y F–J, separadas por la ranura central. A–E de una misma fila están unidos; F–J de esa fila forman otro grupo independiente.
 
-Colocar el primer DIP atravesando la ranura central, con contactos opuestos en E10–E17 y F10–F17. Los jumpers macho–hembra llevan las señales de J3 a A10–A17. Desde J10–J17, conectar jumpers macho–macho al riel de GND.
+Colocar el primer DIP atravesando la ranura central, con contactos opuestos en E10–E17 y F10–F17. Los jumpers macho–macho llevan las señales del conector hembra J4 a A10–A17. Desde J10–J17, conectar jumpers macho–macho al riel de GND.
 
 Colocar el segundo DIP atravesando la ranura en las filas 25–32. Usar cinco posiciones: señales en A25–A29, y jumpers macho–macho desde J25–J29 a GND. Las otras tres posiciones quedan libres. Identificar cada interruptor por su fila; la numeración impresa del DIP depende de su orientación.
 
-| Entrada | Pin macho del Dock | Bola FPGA | Señal en protoboard | Jumper macho–macho |
+| Entrada | Pin hembra del Dock | Nombre del pin FPGA | Señal en protoboard | Puente a GND |
 |---|---|---|---|---|
-| a | J3-1 | K2 | A10 | J10 → GND |
-| b | J3-2 | K1 | A11 | J11 → GND |
-| c | J3-3 | L1 | A12 | J12 → GND |
-| d | J3-4 | L2 | A13 | J13 → GND |
-| A[3] | J3-5 | K4 | A14 | J14 → GND |
-| A[2] | J3-6 | J4 | A15 | J15 → GND |
-| A[1] | J3-7 | G1 | A16 | J16 → GND |
-| A[0] | J3-8 | G2 | A17 | J17 → GND |
-| B[3] | J3-9 | L3 | A25 | J25 → GND |
-| B[2] | J3-10 | L4 | A26 | J26 → GND |
-| B[1] | J3-23 | H4 | A27 | J27 → GND |
-| B[0] | J3-24 | G4 | A28 | J28 → GND |
-| en | J3-15 | F1 | A29 | J29 → GND |
-| Reset | J3-16 | F2 | Grupo del primer contacto del pulsador | Segundo contacto → GND |
-| GND | J3-12 | — | Riel negativo | Unir las mitades si están separadas |
+| a | J4-5 | **C11** | A10 | J10 → GND |
+| b | J4-6 | **C10** | A11 | J11 → GND |
+| c | J4-7 | **B11** | A12 | J12 → GND |
+| d | J4-8 | **B10** | A13 | J13 → GND |
+| A[3] | J4-9 | **D11** | A14 | J14 → GND |
+| A[2] | J4-10 | **D10** | A15 | J15 → GND |
+| A[1] | J4-11 | **G11** | A16 | J16 → GND |
+| A[0] | J4-12 | **G10** | A17 | J17 → GND |
+| B[3] | J5-5 | **L5** | A25 | J25 → GND |
+| B[2] | J5-6 | **K5** | A26 | J26 → GND |
+| B[1] | J5-7 | **K11** | A27 | J27 → GND |
+| B[0] | J5-8 | **L11** | A28 | J28 → GND |
+| en | J5-9 | **E11** | A29 | J29 → GND |
+| Reset | J5-10 | **E10** | Grupo del primer contacto del pulsador | Segundo contacto → GND |
+| GND | J4-3 | GND | Riel negativo | Unir las mitades si están separadas |
 
-Contar los pines desde el pin 1 marcado en J3: una columna contiene 1,3,5…39; la otra, 2,4,6…40. El diagrama muestra la numeración del esquema, no una vista por detrás. La bola FPGA J4 de A2 no es el conector J4 del Dock.
+Identificar el pin 1 de cada conector antes de contar: cada PMOD tiene dos filas de seis contactos, con 1,3,5,7,9,11 en una fila y 2,4,6,8,10,12 en la otra. El dibujo muestra la numeración del esquema. Usar los nombres de pin C11, B11, D11, etc., indicados en la placa cuando estén impresos.
 
 ## Pulsador
 
-Colocar el pulsador atravesando la ranura central, en una zona libre. La punta macho del jumper de J3-16 comparte el grupo de agujeros con un contacto del pulsador. El otro contacto se conecta a GND con un jumper macho–macho. En un pulsador de cuatro patas, escoger dos contactos que se unan solamente al presionar; verificar esta pareja con continuidad antes de alimentar.
+Colocar el pulsador atravesando la ranura central, en una zona libre. Una punta macho entra en E10 (conector hembra J5, pin 10); la otra comparte el grupo de agujeros con un contacto del pulsador. El otro contacto se conecta a GND con un jumper macho–macho. En un pulsador de cuatro patas, escoger dos contactos que se unan solamente al presionar; verificar esta pareja con continuidad antes de alimentar.
 
 Al presionar se borran Q y flag_q. Los indicadores u/v y en siguen mostrando sus entradas actuales.
 
