@@ -48,7 +48,7 @@ Al presionar se borran Q y flag_q. Los indicadores u/v y en siguen mostrando sus
 
 El LED×8 es activo en bajo. El adaptador invierte sus salidas para que **LED encendido = 1 lógico**.
 
-L1–L8 indican el orden de lectura usado en el montaje. La columna D identifica el componente en el esquema oficial del módulo; las dos numeraciones son distintas.
+L1–L8 indican el orden previsto según la relación de pines proporcionada para el montaje. La posición visual debe contrastarse en la placa siguiendo `prueba_placa_inicial.md`. La columna D identifica el componente en el esquema oficial del módulo; las dos numeraciones son distintas.
 
 | Orden de lectura | LED del esquema | Señal | Pin de J6 | Bola FPGA |
 |---|---|---|---|---|

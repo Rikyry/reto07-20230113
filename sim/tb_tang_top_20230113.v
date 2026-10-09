@@ -40,7 +40,22 @@ module tb_tang_top_20230113;
         if(dut.rst!==0 || led[4:0]!==5'b11111) $fatal(1,"reset release captures prematurely");
         @(posedge clk); #1;
         if(led[4:0]!==5'b01000) $fatal(1,"capture after synchronized reset release");
-        $display("PASS board adapter: female PMOD inputs, L1-L8 Q3 Q2 Q1 Q0 flag u v en layout, synchronization, retention and reset");
+        @(negedge clk); sw=~{1'b1,4'b0000,4'd0,4'd0};
+        repeat(3) @(posedge clk); #1;
+        if(led!==8'h7f || panel_on!==8'b00000001)
+            $fatal(1,"0 minus 0, only G5 enable on");
+        @(negedge clk); sw[4]=0;
+        repeat(3) @(posedge clk); #1;
+        if(led!==8'h7e || panel_on!==8'b00010001)
+            $fatal(1,"G10 grounded: 1 minus 0, H7 result and G5 enable on");
+        @(negedge clk); sw[12]=1;
+        repeat(3) @(posedge clk); #1;
+        if(led!==8'hfe || panel_on!==8'b00010000)
+            $fatal(1,"enable off must retain result 1");
+        @(negedge clk); rst_n=0; #1;
+        if(led!==8'hff || panel_on!==8'h00)
+            $fatal(1,"reset with enable off must clear result");
+        $display("PASS board adapter: female PMOD inputs, physical pin mapping, synchronization, retention, reset, 0-0 and 1-0 with G10/E11");
         $finish;
     end
     initial begin #10000; $fatal(1,"timeout"); end
