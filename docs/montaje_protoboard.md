@@ -48,18 +48,20 @@ Al presionar se borran Q y flag_q. Los indicadores u/v y en siguen mostrando sus
 
 El LED×8 es activo en bajo. El adaptador invierte sus salidas para que **LED encendido = 1 lógico**.
 
-| LED | Señal | Pin de J6 | Bola FPGA |
-|---|---|---|---|
-| D1 | Q[0] | 11 | F5 |
-| D2 | Q[1] | 12 | G5 |
-| D3 | Q[2] | 9 | G7 |
-| D4 | Q[3] | 10 | G8 |
-| D5 | flag_q | 6 | J5 |
-| D6 | u | 5 | H5 |
-| D7 | v | 8 | H7 |
-| D8 | en_led | 7 | H8 |
+L1–L8 indican el orden de lectura usado en el montaje. La columna D identifica el componente en el esquema oficial del módulo; las dos numeraciones son distintas.
 
-D1–D4 representan Q0–Q3, con pesos 1,2,4,8. Leer el resultado como **D4 D3 D2 D1**. D5 muestra préstamo, acarreo, paridad o empate según la operación. D6=u, D7=v y D8=en.
+| Orden de lectura | LED del esquema | Señal | Pin de J6 | Bola FPGA |
+|---|---|---|---|---|
+| L1 | D5 | Q[3], peso 8 | 6 | J5 |
+| L2 | D6 | Q[2], peso 4 | 5 | H5 |
+| L3 | D8 | Q[1], peso 2 | 7 | H8 |
+| L4 | D7 | Q[0], peso 1 | 8 | H7 |
+| L5 | D3 | flag_q | 9 | G7 |
+| L6 | D4 | u | 10 | G8 |
+| L7 | D1 | v | 11 | F5 |
+| L8 | D2 | en_led | 12 | G5 |
+
+Leer los ocho LED como **Q3 Q2 Q1 Q0 flag u v en**. L1–L4 representan el resultado binario, con pesos 8,4,2,1. L5 muestra préstamo, acarreo, paridad o empate según la operación. L6=u, L7=v y L8=en. El Dock usa H8 en el contacto de L3, según el esquema oficial; H6 no se utiliza en este conector.
 
 ## Comprobación
 
@@ -76,6 +78,8 @@ Alimentar la placa por USB-C. Abrir en, ajustar el control y los datos, esperar 
 | MAYOR con empate | 0 0 1 1 | 0111 (7) | 0111 (7) | 0111 (7) | 1 |
 
 Estos valores son resultados esperados para comprobar el montaje; no son mediciones de la placa.
+
+Prueba inicial: a b c d = 1000, A = 1000, B = 1000 y en = 1. Cerrar solo C11, D11, L5 y E11; dejar las otras entradas abiertas. La operación es RESTA, 8 − 8 = 0. Los LED L1–L8 deben mostrar **00000001**. Al abrir únicamente E11, deben mostrar **00000000**.
 
 Proyecto: `fpga/gowin/reto07_20230113/reto07_20230113.gprj`. Top: `tang_top_20230113`. Dispositivo: GW5A-LV25MG121NC1/I0, revisión A. Reloj: 50 MHz en E2, restricción de 20 ns. Bitstream: `fpga/bitstream/reto07_20230113.fs`.
 

@@ -48,7 +48,7 @@ Note:Core Timing Report
 <Part Number>: GW5A-LV25MG121NC1/I0
 <Device>: GW5A-25
 <Device Version>: A
-<Created Time>: Fri Oct  9 17:15:08 2026
+<Created Time>: Fri Oct  9 18:08:30 2026
 
 
 2. Timing Summaries
@@ -84,14 +84,14 @@ Note:Core Timing Report
 <Report Command>:report_timing -setup -max_paths 25 -max_common_paths 1
   Path Number   Path Slack            From Node                        To Node              From Clock     To Clock     Relation   Clock Skew   Data Delay
  ============= ============ ============================== =============================== ============= ============= ========== ============ ============
-  1             2.136        sistema/registro/Q_1_s0/Q      led_1_obuf/O                    clk_50m:[R]   N/A           10.000     2.604        5.259
-  2             2.188        sw_sync_10_s0/Q                led_5_obuf/O                    clk_50m:[R]   N/A           10.000     2.612        5.201
-  3             2.189        sistema/registro/Q_0_s0/Q      led_0_obuf/O                    clk_50m:[R]   N/A           10.000     2.648        5.163
-  4             2.234        sw_sync_12_s0/Q                led_7_obuf/O                    clk_50m:[R]   N/A           10.000     2.614        5.152
-  5             2.244        sw_sync_10_s0/Q                led_6_obuf/O                    clk_50m:[R]   N/A           10.000     2.612        5.144
-  6             2.405        sistema/registro/Q_2_s0/Q      led_2_obuf/O                    clk_50m:[R]   N/A           10.000     2.658        4.938
-  7             2.405        sistema/registro/Q_3_s0/Q      led_3_obuf/O                    clk_50m:[R]   N/A           10.000     2.604        4.990
-  8             2.445        sistema/registro/flag_q_s0/Q   led_4_obuf/O                    clk_50m:[R]   N/A           10.000     2.648        4.907
+  1             1.906        sw_sync_10_s0/Q                led_6_obuf/O                    clk_50m:[R]   N/A           10.000     2.612        5.482
+  2             1.924        sw_sync_12_s0/Q                led_7_obuf/O                    clk_50m:[R]   N/A           10.000     2.614        5.462
+  3             1.938        sistema/registro/Q_0_s0/Q      led_0_obuf/O                    clk_50m:[R]   N/A           10.000     2.648        5.414
+  4             2.081        sistema/registro/flag_q_s0/Q   led_4_obuf/O                    clk_50m:[R]   N/A           10.000     2.648        5.271
+  5             2.155        sistema/registro/Q_1_s0/Q      led_1_obuf/O                    clk_50m:[R]   N/A           10.000     2.604        5.240
+  6             2.193        sistema/registro/Q_3_s0/Q      led_3_obuf/O                    clk_50m:[R]   N/A           10.000     2.604        5.203
+  7             2.209        sw_sync_10_s0/Q                led_5_obuf/O                    clk_50m:[R]   N/A           10.000     2.612        5.179
+  8             2.341        sistema/registro/Q_2_s0/Q      led_2_obuf/O                    clk_50m:[R]   N/A           10.000     2.658        5.002
   9             15.081       sw_sync_4_s0/Q                 sistema/registro/flag_q_s0/D    clk_50m:[R]   clk_50m:[R]   20.000     -0.009       4.865
   10            15.262       sw_sync_4_s0/Q                 sistema/registro/Q_1_s0/D       clk_50m:[R]   clk_50m:[R]   20.000     0.034        4.640
   11            15.267       sw_sync_4_s0/Q                 sistema/registro/Q_0_s0/D       clk_50m:[R]   clk_50m:[R]   20.000     -0.009       4.679
@@ -112,33 +112,33 @@ Note:Core Timing Report
 
 3.1.2 Hold Paths Table
 <Report Command>:report_timing -hold -max_paths 25 -max_common_paths 1
-  Path Number   Path Slack            From Node                        To Node              From Clock     To Clock     Relation   Clock Skew   Data Delay
- ============= ============ ============================== =============================== ============= ============= ========== ============ ============
-  1             0.321        sw_meta_0_s0/Q                 sw_sync_0_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.368
-  2             0.321        sw_meta_4_s0/Q                 sw_sync_4_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.368
-  3             0.335        sw_meta_2_s0/Q                 sw_sync_2_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
-  4             0.335        sw_meta_6_s0/Q                 sw_sync_6_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
-  5             0.335        sw_meta_7_s0/Q                 sw_sync_7_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
-  6             0.335        sw_meta_8_s0/Q                 sw_sync_8_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
-  7             0.335        sw_meta_9_s0/Q                 sw_sync_9_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
-  8             0.335        sw_meta_10_s0/Q                sw_sync_10_s0/D                 clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
-  9             0.335        sw_meta_11_s0/Q                sw_sync_11_s0/D                 clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
-  10            0.335        sw_meta_12_s0/Q                sw_sync_12_s0/D                 clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
-  11            0.370        rst_pipe_0_s0/Q                rst_pipe_1_s0/D                 clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.383
-  12            0.370        sw_meta_3_s0/Q                 sw_sync_3_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.383
-  13            0.384        sw_meta_1_s0/Q                 sw_sync_1_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.431
-  14            0.384        sw_meta_5_s0/Q                 sw_sync_5_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.431
-  15            0.467        sw_sync_12_s0/Q                sistema/registro/Q_0_s0/CE      clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.420
-  16            0.509        sw_sync_12_s0/Q                sistema/registro/Q_3_s0/CE      clk_50m:[R]   clk_50m:[R]   0.000      0.004        0.436
-  17            0.509        sw_sync_12_s0/Q                sistema/registro/Q_1_s0/CE      clk_50m:[R]   clk_50m:[R]   0.000      0.004        0.436
-  18            0.571        sw_sync_12_s0/Q                sistema/registro/Q_2_s0/CE      clk_50m:[R]   clk_50m:[R]   0.000      -0.026       0.528
-  19            0.575        sw_sync_12_s0/Q                sistema/registro/flag_q_s0/CE   clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.528
-  20            0.584        sw_sync_7_s0/Q                 sistema/registro/Q_3_s0/D       clk_50m:[R]   clk_50m:[R]   0.000      0.004        0.605
-  21            0.649        sw_sync_6_s0/Q                 sistema/registro/Q_2_s0/D       clk_50m:[R]   clk_50m:[R]   0.000      -0.026       0.688
-  22            0.766        sw_sync_4_s0/Q                 sistema/registro/flag_q_s0/D    clk_50m:[R]   clk_50m:[R]   0.000      -0.004       0.795
-  23            0.771        sw_sync_0_s0/Q                 sistema/registro/Q_0_s0/D       clk_50m:[R]   clk_50m:[R]   0.000      -0.004       0.800
-  24            0.782        sw_sync_8_s0/Q                 sistema/registro/Q_1_s0/D       clk_50m:[R]   clk_50m:[R]   0.000      0.003        0.804
-  25            5.067        sistema/registro/flag_q_s0/Q   led_4_obuf/O                    clk_50m:[R]   N/A           0.000      1.398        3.668
+  Path Number   Path Slack           From Node                      To Node              From Clock     To Clock     Relation   Clock Skew   Data Delay
+ ============= ============ =========================== =============================== ============= ============= ========== ============ ============
+  1             0.321        sw_meta_0_s0/Q              sw_sync_0_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.368
+  2             0.321        sw_meta_4_s0/Q              sw_sync_4_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.368
+  3             0.335        sw_meta_2_s0/Q              sw_sync_2_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
+  4             0.335        sw_meta_6_s0/Q              sw_sync_6_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
+  5             0.335        sw_meta_7_s0/Q              sw_sync_7_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
+  6             0.335        sw_meta_8_s0/Q              sw_sync_8_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
+  7             0.335        sw_meta_9_s0/Q              sw_sync_9_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
+  8             0.335        sw_meta_10_s0/Q             sw_sync_10_s0/D                 clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
+  9             0.335        sw_meta_11_s0/Q             sw_sync_11_s0/D                 clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
+  10            0.335        sw_meta_12_s0/Q             sw_sync_12_s0/D                 clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.360
+  11            0.370        rst_pipe_0_s0/Q             rst_pipe_1_s0/D                 clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.383
+  12            0.370        sw_meta_3_s0/Q              sw_sync_3_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      0.000        0.383
+  13            0.384        sw_meta_1_s0/Q              sw_sync_1_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.431
+  14            0.384        sw_meta_5_s0/Q              sw_sync_5_s0/D                  clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.431
+  15            0.467        sw_sync_12_s0/Q             sistema/registro/Q_0_s0/CE      clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.420
+  16            0.509        sw_sync_12_s0/Q             sistema/registro/Q_3_s0/CE      clk_50m:[R]   clk_50m:[R]   0.000      0.004        0.436
+  17            0.509        sw_sync_12_s0/Q             sistema/registro/Q_1_s0/CE      clk_50m:[R]   clk_50m:[R]   0.000      0.004        0.436
+  18            0.571        sw_sync_12_s0/Q             sistema/registro/Q_2_s0/CE      clk_50m:[R]   clk_50m:[R]   0.000      -0.026       0.528
+  19            0.575        sw_sync_12_s0/Q             sistema/registro/flag_q_s0/CE   clk_50m:[R]   clk_50m:[R]   0.000      -0.022       0.528
+  20            0.584        sw_sync_7_s0/Q              sistema/registro/Q_3_s0/D       clk_50m:[R]   clk_50m:[R]   0.000      0.004        0.605
+  21            0.649        sw_sync_6_s0/Q              sistema/registro/Q_2_s0/D       clk_50m:[R]   clk_50m:[R]   0.000      -0.026       0.688
+  22            0.766        sw_sync_4_s0/Q              sistema/registro/flag_q_s0/D    clk_50m:[R]   clk_50m:[R]   0.000      -0.004       0.795
+  23            0.771        sw_sync_0_s0/Q              sistema/registro/Q_0_s0/D       clk_50m:[R]   clk_50m:[R]   0.000      -0.004       0.800
+  24            0.782        sw_sync_8_s0/Q              sistema/registro/Q_1_s0/D       clk_50m:[R]   clk_50m:[R]   0.000      0.003        0.804
+  25            5.128        sistema/registro/Q_2_s0/Q   led_2_obuf/O                    clk_50m:[R]   N/A           0.000      1.402        3.726
 
 3.1.3 Recovery Paths Table
 <Report Command>:report_timing -recovery -max_paths 25 -max_common_paths 1
@@ -180,176 +180,8 @@ Report Command:report_min_pulse_width -nworst 10 -detail
 Report Command:report_timing -setup -max_paths 25 -max_common_paths 1
 						Path1
 Path Summary:
-Slack             : 2.136
-Data Arrival Time : 7.864
-Data Required Time: 10.000
-From              : sistema/registro/Q_1_s0
-To                : led_1_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
- ======= ======= ====== ==== ======== ============== =============================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.604   1.922   tNET   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/CLK
-  2.987   0.382   tC2Q   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/Q
-  3.477   0.490   tNET   RR   1        R16C39[0][B]   led_d_1_s0/I0
-  3.739   0.262   tINS   RR   1        R16C39[0][B]   led_d_1_s0/F
-  5.308   1.569   tNET   RR   1        IOT72[B]       led_1_obuf/I
-  7.864   2.556   tINS   RR   0        IOT72[B]       led_1_obuf/O
-
-Data Required Path:
-    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
- ======== ======== ====== ==== ======== ========== ========================
-  10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT72[B]   led_1_obuf
-
-Path Statistics:
-Clock Skew: -2.604
-Setup Relationship: 10.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 26.206%,
-                     route: 1.922 73.794%)
-Arrival Data Path Delay: (cell: 2.818 53.582%,
-                    route: 2.059 39.145%,
-                    tC2Q: 0.382 7.273%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path2
-Path Summary:
-Slack             : 2.188
-Data Arrival Time : 7.812
-Data Required Time: 10.000
-From              : sw_sync_10_s0
-To                : led_5_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                 NODE
- ======= ======= ====== ==== ======== ============== ========================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.612   1.929   tNET   RR   1        R17C34[2][B]   sw_sync_10_s0/CLK
-  2.994   0.382   tC2Q   RR   4        R17C34[2][B]   sw_sync_10_s0/Q
-  3.157   0.162   tNET   RR   1        R17C35[0][B]   led_d_5_s/I2
-  3.683   0.526   tINS   RR   8        R17C35[0][B]   led_d_5_s/F
-  5.257   1.574   tNET   RR   1        IOT61[A]       led_5_obuf/I
-  7.812   2.556   tINS   RR   0        IOT61[A]       led_5_obuf/O
-
-Data Required Path:
-    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
- ======== ======== ====== ==== ======== ========== ========================
-  10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT61[A]   led_5_obuf
-
-Path Statistics:
-Clock Skew: -2.612
-Setup Relationship: 10.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 26.131%,
-                     route: 1.929 73.869%)
-Arrival Data Path Delay: (cell: 3.082 59.259%,
-                    route: 1.736 33.386%,
-                    tC2Q: 0.382 7.355%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path3
-Path Summary:
-Slack             : 2.189
-Data Arrival Time : 7.811
-Data Required Time: 10.000
-From              : sistema/registro/Q_0_s0
-To                : led_0_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
- ======= ======= ====== ==== ======== ============== =============================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.648   1.966   tNET   RR   1        R20C36[2][B]   sistema/registro/Q_0_s0/CLK
-  3.031   0.382   tC2Q   RR   1        R20C36[2][B]   sistema/registro/Q_0_s0/Q
-  3.459   0.429   tNET   RR   1        R16C39[0][A]   led_d_0_s0/I0
-  3.722   0.262   tINS   RR   1        R16C39[0][A]   led_d_0_s0/F
-  5.256   1.534   tNET   RR   1        IOT72[A]       led_0_obuf/I
-  7.811   2.556   tINS   RR   0        IOT72[A]       led_0_obuf/O
-
-Data Required Path:
-    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
- ======== ======== ====== ==== ======== ========== ========================
-  10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT72[A]   led_0_obuf
-
-Path Statistics:
-Clock Skew: -2.648
-Setup Relationship: 10.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 25.773%,
-                     route: 1.966 74.227%)
-Arrival Data Path Delay: (cell: 2.818 54.581%,
-                    route: 1.963 38.011%,
-                    tC2Q: 0.382 7.408%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path4
-Path Summary:
-Slack             : 2.234
-Data Arrival Time : 7.766
-Data Required Time: 10.000
-From              : sw_sync_12_s0
-To                : led_7_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                 NODE
- ======= ======= ====== ==== ======== ============== ========================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.614   1.931   tNET   RR   1        R18C34[0][A]   sw_sync_12_s0/CLK
-  2.996   0.382   tC2Q   RR   6        R18C34[0][A]   sw_sync_12_s0/Q
-  3.789   0.792   tNET   RR   1        R2C38[0][A]    led_d_7_s0/I0
-  4.051   0.262   tINS   RR   1        R2C38[0][A]    led_d_7_s0/F
-  5.210   1.159   tNET   RR   1        IOT66[A]       led_7_obuf/I
-  7.766   2.556   tINS   RR   0        IOT66[A]       led_7_obuf/O
-
-Data Required Path:
-    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
- ======== ======== ====== ==== ======== ========== ========================
-  10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT66[A]   led_7_obuf
-
-Path Statistics:
-Clock Skew: -2.614
-Setup Relationship: 10.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 26.112%,
-                     route: 1.931 73.888%)
-Arrival Data Path Delay: (cell: 2.818 54.700%,
-                    route: 1.951 37.875%,
-                    tC2Q: 0.382 7.425%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path5
-Path Summary:
-Slack             : 2.244
-Data Arrival Time : 7.756
+Slack             : 1.906
+Data Arrival Time : 8.094
 Data Required Time: 10.000
 From              : sw_sync_10_s0
 To                : led_6_obuf
@@ -367,14 +199,14 @@ Data Arrival Path:
   2.994   0.382   tC2Q   RR   4        R17C34[2][B]   sw_sync_10_s0/Q
   3.157   0.162   tNET   RR   1        R17C35[0][A]   led_d_6_s/I2
   3.683   0.526   tINS   RR   9        R17C35[0][A]   led_d_6_s/F
-  5.201   1.518   tNET   RR   1        IOT66[B]       led_6_obuf/I
-  7.756   2.556   tINS   RR   0        IOT66[B]       led_6_obuf/O
+  5.538   1.855   tNET   RR   1        IOT72[A]       led_6_obuf/I
+  8.094   2.556   tINS   RR   0        IOT72[A]       led_6_obuf/O
 
 Data Required Path:
     AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
  ======== ======== ====== ==== ======== ========== ========================
   10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT66[B]   led_6_obuf
+  10.000   0.000    tOut   R    0        IOT72[A]   led_6_obuf
 
 Path Statistics:
 Clock Skew: -2.612
@@ -382,19 +214,61 @@ Setup Relationship: 10.000
 Logic Level: 3
 Arrival Clock Path delay: (cell: 0.683 26.131%,
                      route: 1.929 73.869%)
-Arrival Data Path Delay: (cell: 3.082 59.907%,
-                    route: 1.680 32.658%,
-                    tC2Q: 0.382 7.435%)
+Arrival Data Path Delay: (cell: 3.082 56.218%,
+                    route: 2.018 36.804%,
+                    tC2Q: 0.382 6.978%)
 Required Clock Path Delay: (cell: 0.000 0.000%,
                      route: 0.000 0.000%)
 
-						Path6
+						Path2
 Path Summary:
-Slack             : 2.405
-Data Arrival Time : 7.595
+Slack             : 1.924
+Data Arrival Time : 8.076
 Data Required Time: 10.000
-From              : sistema/registro/Q_2_s0
-To                : led_2_obuf
+From              : sw_sync_12_s0
+To                : led_7_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                 NODE
+ ======= ======= ====== ==== ======== ============== ========================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  2.614   1.931   tNET   RR   1        R18C34[0][A]   sw_sync_12_s0/CLK
+  2.996   0.382   tC2Q   RR   6        R18C34[0][A]   sw_sync_12_s0/Q
+  3.789   0.792   tNET   RR   1        R2C38[0][A]    led_d_7_s0/I0
+  4.051   0.262   tINS   RR   1        R2C38[0][A]    led_d_7_s0/F
+  5.520   1.469   tNET   RR   1        IOT72[B]       led_7_obuf/I
+  8.076   2.556   tINS   RR   0        IOT72[B]       led_7_obuf/O
+
+Data Required Path:
+    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
+ ======== ======== ====== ==== ======== ========== ========================
+  10.000   10.000                                   active clock edge time
+  10.000   0.000    tOut   R    0        IOT72[B]   led_7_obuf
+
+Path Statistics:
+Clock Skew: -2.614
+Setup Relationship: 10.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.683 26.112%,
+                     route: 1.931 73.888%)
+Arrival Data Path Delay: (cell: 2.818 51.595%,
+                    route: 2.261 41.402%,
+                    tC2Q: 0.382 7.003%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path3
+Path Summary:
+Slack             : 1.938
+Data Arrival Time : 8.062
+Data Required Time: 10.000
+From              : sistema/registro/Q_0_s0
+To                : led_0_obuf
 Launch Clk        : clk_50m:[R]
 Latch Clk         : N/A
 
@@ -405,77 +279,35 @@ Data Arrival Path:
   0.000   0.000                                       clk_50m
   0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
   0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.658   1.975   tNET   RR   1        R20C37[3][A]   sistema/registro/Q_2_s0/CLK
-  3.040   0.382   tC2Q   RR   1        R20C37[3][A]   sistema/registro/Q_2_s0/Q
-  3.314   0.274   tNET   RR   1        R16C39[1][A]   led_d_2_s0/I0
-  3.775   0.461   tINS   RR   1        R16C39[1][A]   led_d_2_s0/F
-  5.040   1.265   tNET   RR   1        IOT68[A]       led_2_obuf/I
-  7.595   2.556   tINS   RR   0        IOT68[A]       led_2_obuf/O
+  2.648   1.966   tNET   RR   1        R20C36[2][B]   sistema/registro/Q_0_s0/CLK
+  3.031   0.382   tC2Q   RR   1        R20C36[2][B]   sistema/registro/Q_0_s0/Q
+  3.494   0.464   tNET   RR   1        R16C39[0][A]   led_d_0_s0/I0
+  4.021   0.526   tINS   RR   1        R16C39[0][A]   led_d_0_s0/F
+  5.507   1.486   tNET   RR   1        IOT66[B]       led_0_obuf/I
+  8.062   2.556   tINS   RR   0        IOT66[B]       led_0_obuf/O
 
 Data Required Path:
     AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
  ======== ======== ====== ==== ======== ========== ========================
   10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT68[A]   led_2_obuf
+  10.000   0.000    tOut   R    0        IOT66[B]   led_0_obuf
 
 Path Statistics:
-Clock Skew: -2.658
+Clock Skew: -2.648
 Setup Relationship: 10.000
 Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 25.682%,
-                     route: 1.975 74.318%)
-Arrival Data Path Delay: (cell: 3.017 61.093%,
-                    route: 1.539 31.161%,
-                    tC2Q: 0.382 7.746%)
+Arrival Clock Path delay: (cell: 0.683 25.773%,
+                     route: 1.966 74.227%)
+Arrival Data Path Delay: (cell: 3.082 56.919%,
+                    route: 1.950 36.016%,
+                    tC2Q: 0.382 7.065%)
 Required Clock Path Delay: (cell: 0.000 0.000%,
                      route: 0.000 0.000%)
 
-						Path7
+						Path4
 Path Summary:
-Slack             : 2.405
-Data Arrival Time : 7.595
-Data Required Time: 10.000
-From              : sistema/registro/Q_3_s0
-To                : led_3_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
- ======= ======= ====== ==== ======== ============== =============================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.604   1.922   tNET   RR   1        R18C35[0][A]   sistema/registro/Q_3_s0/CLK
-  2.987   0.382   tC2Q   RR   1        R18C35[0][A]   sistema/registro/Q_3_s0/Q
-  3.477   0.490   tNET   RR   1        R16C39[1][B]   led_d_3_s0/I0
-  3.739   0.262   tINS   RR   1        R16C39[1][B]   led_d_3_s0/F
-  5.039   1.300   tNET   RR   1        IOT68[B]       led_3_obuf/I
-  7.595   2.556   tINS   RR   0        IOT68[B]       led_3_obuf/O
-
-Data Required Path:
-    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
- ======== ======== ====== ==== ======== ========== ========================
-  10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT68[B]   led_3_obuf
-
-Path Statistics:
-Clock Skew: -2.604
-Setup Relationship: 10.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 26.206%,
-                     route: 1.922 73.794%)
-Arrival Data Path Delay: (cell: 2.818 56.467%,
-                    route: 1.790 35.868%,
-                    tC2Q: 0.382 7.665%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path8
-Path Summary:
-Slack             : 2.445
-Data Arrival Time : 7.555
+Slack             : 2.081
+Data Arrival Time : 7.919
 Data Required Time: 10.000
 From              : sistema/registro/flag_q_s0
 To                : led_4_obuf
@@ -493,14 +325,14 @@ Data Arrival Path:
   3.031   0.382   tC2Q   RR   1        R20C38[2][B]   sistema/registro/flag_q_s0/Q
   3.279   0.249   tNET   RR   1        R16C39[2][A]   led_d_4_s0/I0
   3.741   0.461   tINS   RR   1        R16C39[2][A]   led_d_4_s0/F
-  4.999   1.259   tNET   RR   1        IOT61[B]       led_4_obuf/I
-  7.555   2.556   tINS   RR   0        IOT61[B]       led_4_obuf/O
+  5.363   1.622   tNET   RR   1        IOT68[A]       led_4_obuf/I
+  7.919   2.556   tINS   RR   0        IOT68[A]       led_4_obuf/O
 
 Data Required Path:
     AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
  ======== ======== ====== ==== ======== ========== ========================
   10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT61[B]   led_4_obuf
+  10.000   0.000    tOut   R    0        IOT68[A]   led_4_obuf
 
 Path Statistics:
 Clock Skew: -2.648
@@ -508,9 +340,177 @@ Setup Relationship: 10.000
 Logic Level: 3
 Arrival Clock Path delay: (cell: 0.683 25.773%,
                      route: 1.966 74.227%)
-Arrival Data Path Delay: (cell: 3.017 61.482%,
-                    route: 1.508 30.723%,
-                    tC2Q: 0.382 7.795%)
+Arrival Data Path Delay: (cell: 3.017 57.238%,
+                    route: 1.871 35.504%,
+                    tC2Q: 0.382 7.257%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path5
+Path Summary:
+Slack             : 2.155
+Data Arrival Time : 7.845
+Data Required Time: 10.000
+From              : sistema/registro/Q_1_s0
+To                : led_1_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
+ ======= ======= ====== ==== ======== ============== =============================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  2.604   1.922   tNET   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/CLK
+  2.987   0.382   tC2Q   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/Q
+  3.477   0.490   tNET   RR   1        R16C39[0][B]   led_d_1_s0/I0
+  3.739   0.262   tINS   RR   1        R16C39[0][B]   led_d_1_s0/F
+  5.289   1.550   tNET   RR   1        IOT66[A]       led_1_obuf/I
+  7.845   2.556   tINS   RR   0        IOT66[A]       led_1_obuf/O
+
+Data Required Path:
+    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
+ ======== ======== ====== ==== ======== ========== ========================
+  10.000   10.000                                   active clock edge time
+  10.000   0.000    tOut   R    0        IOT66[A]   led_1_obuf
+
+Path Statistics:
+Clock Skew: -2.604
+Setup Relationship: 10.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.683 26.206%,
+                     route: 1.922 73.794%)
+Arrival Data Path Delay: (cell: 2.818 53.773%,
+                    route: 2.040 38.928%,
+                    tC2Q: 0.382 7.299%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path6
+Path Summary:
+Slack             : 2.193
+Data Arrival Time : 7.807
+Data Required Time: 10.000
+From              : sistema/registro/Q_3_s0
+To                : led_3_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
+ ======= ======= ====== ==== ======== ============== =============================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  2.604   1.922   tNET   RR   1        R18C35[0][A]   sistema/registro/Q_3_s0/CLK
+  2.987   0.382   tC2Q   RR   1        R18C35[0][A]   sistema/registro/Q_3_s0/Q
+  3.477   0.490   tNET   RR   1        R16C39[1][B]   led_d_3_s0/I0
+  3.993   0.516   tINS   RR   1        R16C39[1][B]   led_d_3_s0/F
+  5.252   1.259   tNET   RR   1        IOT61[B]       led_3_obuf/I
+  7.807   2.556   tINS   RR   0        IOT61[B]       led_3_obuf/O
+
+Data Required Path:
+    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
+ ======== ======== ====== ==== ======== ========== ========================
+  10.000   10.000                                   active clock edge time
+  10.000   0.000    tOut   R    0        IOT61[B]   led_3_obuf
+
+Path Statistics:
+Clock Skew: -2.604
+Setup Relationship: 10.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.683 26.206%,
+                     route: 1.922 73.794%)
+Arrival Data Path Delay: (cell: 3.072 59.038%,
+                    route: 1.749 33.610%,
+                    tC2Q: 0.382 7.352%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path7
+Path Summary:
+Slack             : 2.209
+Data Arrival Time : 7.791
+Data Required Time: 10.000
+From              : sw_sync_10_s0
+To                : led_5_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                 NODE
+ ======= ======= ====== ==== ======== ============== ========================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  2.612   1.929   tNET   RR   1        R17C34[2][B]   sw_sync_10_s0/CLK
+  2.994   0.382   tC2Q   RR   4        R17C34[2][B]   sw_sync_10_s0/Q
+  3.157   0.162   tNET   RR   1        R17C35[0][B]   led_d_5_s/I2
+  3.683   0.526   tINS   RR   8        R17C35[0][B]   led_d_5_s/F
+  5.236   1.553   tNET   RR   1        IOT68[B]       led_5_obuf/I
+  7.791   2.556   tINS   RR   0        IOT68[B]       led_5_obuf/O
+
+Data Required Path:
+    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
+ ======== ======== ====== ==== ======== ========== ========================
+  10.000   10.000                                   active clock edge time
+  10.000   0.000    tOut   R    0        IOT68[B]   led_5_obuf
+
+Path Statistics:
+Clock Skew: -2.612
+Setup Relationship: 10.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.683 26.131%,
+                     route: 1.929 73.869%)
+Arrival Data Path Delay: (cell: 3.082 59.502%,
+                    route: 1.715 33.113%,
+                    tC2Q: 0.382 7.385%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path8
+Path Summary:
+Slack             : 2.341
+Data Arrival Time : 7.659
+Data Required Time: 10.000
+From              : sistema/registro/Q_2_s0
+To                : led_2_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
+ ======= ======= ====== ==== ======== ============== =============================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  2.658   1.975   tNET   RR   1        R20C37[3][A]   sistema/registro/Q_2_s0/CLK
+  3.040   0.382   tC2Q   RR   1        R20C37[3][A]   sistema/registro/Q_2_s0/Q
+  3.314   0.274   tNET   RR   1        R16C39[1][A]   led_d_2_s0/I0
+  3.775   0.461   tINS   RR   1        R16C39[1][A]   led_d_2_s0/F
+  5.104   1.329   tNET   RR   1        IOT61[A]       led_2_obuf/I
+  7.659   2.556   tINS   RR   0        IOT61[A]       led_2_obuf/O
+
+Data Required Path:
+    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
+ ======== ======== ====== ==== ======== ========== ========================
+  10.000   10.000                                   active clock edge time
+  10.000   0.000    tOut   R    0        IOT61[A]   led_2_obuf
+
+Path Statistics:
+Clock Skew: -2.658
+Setup Relationship: 10.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.683 25.682%,
+                     route: 1.975 74.318%)
+Arrival Data Path Delay: (cell: 3.017 60.314%,
+                    route: 1.603 32.039%,
+                    tC2Q: 0.382 7.647%)
 Required Clock Path Delay: (cell: 0.000 0.000%,
                      route: 0.000 0.000%)
 
@@ -2367,43 +2367,43 @@ Required Clock Path Delay: (cell: 0.675 49.226%,
 
 						Path25
 Path Summary:
-Slack             : 5.067
-Data Arrival Time : 5.067
+Slack             : 5.128
+Data Arrival Time : 5.128
 Data Required Time: 0.000
-From              : sistema/registro/flag_q_s0
-To                : led_4_obuf
+From              : sistema/registro/Q_2_s0
+To                : led_2_obuf
 Launch Clk        : clk_50m:[R]
 Latch Clk         : N/A
 
 Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                     NODE
- ======= ======= ====== ==== ======== ============== ================================
+   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
+ ======= ======= ====== ==== ======== ============== =============================
   0.000   0.000                                       active clock edge time
   0.000   0.000                                       clk_50m
   0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
   0.675   0.675   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  1.398   0.723   tNET   RR   1        R20C38[2][B]   sistema/registro/flag_q_s0/CLK
-  1.542   0.144   tC2Q   RR   1        R20C38[2][B]   sistema/registro/flag_q_s0/Q
-  1.682   0.140   tNET   RR   1        R16C39[2][A]   led_d_4_s0/I0
-  1.886   0.204   tINS   RR   1        R16C39[2][A]   led_d_4_s0/F
-  2.530   0.644   tNET   RR   1        IOT61[B]       led_4_obuf/I
-  5.067   2.536   tINS   RR   0        IOT61[B]       led_4_obuf/O
+  1.402   0.727   tNET   RR   1        R20C37[3][A]   sistema/registro/Q_2_s0/CLK
+  1.546   0.144   tC2Q   RR   1        R20C37[3][A]   sistema/registro/Q_2_s0/Q
+  1.696   0.150   tNET   RR   1        R16C39[1][A]   led_d_2_s0/I0
+  1.900   0.204   tINS   RR   1        R16C39[1][A]   led_d_2_s0/F
+  2.591   0.691   tNET   RR   1        IOT61[A]       led_2_obuf/I
+  5.128   2.536   tINS   RR   0        IOT61[A]       led_2_obuf/O
 
 Data Required Path:
    AT     DELAY   TYPE   RF   FANOUT     LOC               NODE
  ======= ======= ====== ==== ======== ========== ========================
   0.000   0.000                                   active clock edge time
-  0.000   0.000   tOut   R    0        IOT61[B]   led_4_obuf
+  0.000   0.000   tOut   R    0        IOT61[A]   led_2_obuf
 
 Path Statistics:
-Clock Skew: -1.398
+Clock Skew: -1.402
 Hold Relationship: 0.000
 Logic Level: 3
-Arrival Clock Path delay: (cell: 0.675 48.310%,
-                     route: 0.723 51.690%)
-Arrival Data Path Delay: (cell: 2.740 74.704%,
-                    route: 0.784 21.371%,
-                    tC2Q: 0.144 3.925%)
+Arrival Clock Path delay: (cell: 0.675 48.173%,
+                     route: 0.727 51.827%)
+Arrival Data Path Delay: (cell: 2.740 73.561%,
+                    route: 0.841 22.574%,
+                    tC2Q: 0.144 3.865%)
 Required Clock Path Delay: (cell: 0.000 0.000%,
                      route: 0.000 0.000%)
 
@@ -3118,12 +3118,12 @@ Early clock Path:
 Report Command:report_high_fanout_nets -max_nets 10
   FANOUT    NET NAME     WORST SLACK   MAX DELAY
  ======== ============= ============= ===========
-  33       clk_d         2.136         1.975
-  9        led_d[6]      2.244         1.518
-  8        led_d[5]      2.188         1.574
+  33       clk_d         1.906         1.975
+  9        led_d[6]      1.906         1.855
+  8        led_d[5]      2.209         1.553
   7        sw_sync[2]    15.849        0.857
   7        sw_sync[6]    15.811        0.837
-  6        sw_sync[12]   2.235         0.800
+  6        sw_sync[12]   1.925         0.800
   6        sw_sync[3]    16.863        0.717
   6        sw_sync[7]    16.921        0.425
   6        sw_sync[4]    15.081        1.934
@@ -3134,15 +3134,15 @@ Report Command:report_route_congestion -max_grids 10
   GRID LOC   ROUTE CONGESTIONS
  ========== ===================
   R2C2       1.000
-  R2C3       1.000
-  R2C28      1.000
-  R2C32      1.000
-  R2C34      1.000
-  R2C35      1.000
-  R3C8       1.000
-  R4C45      1.000
-  R7C29      1.000
-  R13C75     1.000
+  R2C12      1.000
+  R2C20      1.000
+  R2C24      1.000
+  R2C26      1.000
+  R2C27      1.000
+  R2C91      1.000
+  R4C37      1.000
+  R7C21      1.000
+  R13C68     1.000
 
 3.7 Timing Exceptions Report
 3.7.1 Setup Analysis Report
@@ -3150,176 +3150,8 @@ Report Command:report_exceptions -setup -max_paths 5 -max_common_paths 1
 Timing Path Constraint[1]: set_max_delay 10.000 -to [get_ports {led[*]}]
 						Path1
 Path Summary:
-Slack             : 2.136
-Data Arrival Time : 7.864
-Data Required Time: 10.000
-From              : sistema/registro/Q_1_s0
-To                : led_1_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
- ======= ======= ====== ==== ======== ============== =============================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.604   1.922   tNET   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/CLK
-  2.987   0.382   tC2Q   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/Q
-  3.477   0.490   tNET   RR   1        R16C39[0][B]   led_d_1_s0/I0
-  3.739   0.262   tINS   RR   1        R16C39[0][B]   led_d_1_s0/F
-  5.308   1.569   tNET   RR   1        IOT72[B]       led_1_obuf/I
-  7.864   2.556   tINS   RR   0        IOT72[B]       led_1_obuf/O
-
-Data Required Path:
-    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
- ======== ======== ====== ==== ======== ========== ========================
-  10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT72[B]   led_1_obuf
-
-Path Statistics:
-Clock Skew: -2.604
-Setup Relationship: 10.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 26.206%,
-                     route: 1.922 73.794%)
-Arrival Data Path Delay: (cell: 2.818 53.582%,
-                    route: 2.059 39.145%,
-                    tC2Q: 0.382 7.273%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path2
-Path Summary:
-Slack             : 2.188
-Data Arrival Time : 7.812
-Data Required Time: 10.000
-From              : sw_sync_10_s0
-To                : led_5_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                 NODE
- ======= ======= ====== ==== ======== ============== ========================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.612   1.929   tNET   RR   1        R17C34[2][B]   sw_sync_10_s0/CLK
-  2.994   0.382   tC2Q   RR   4        R17C34[2][B]   sw_sync_10_s0/Q
-  3.157   0.162   tNET   RR   1        R17C35[0][B]   led_d_5_s/I2
-  3.683   0.526   tINS   RR   8        R17C35[0][B]   led_d_5_s/F
-  5.257   1.574   tNET   RR   1        IOT61[A]       led_5_obuf/I
-  7.812   2.556   tINS   RR   0        IOT61[A]       led_5_obuf/O
-
-Data Required Path:
-    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
- ======== ======== ====== ==== ======== ========== ========================
-  10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT61[A]   led_5_obuf
-
-Path Statistics:
-Clock Skew: -2.612
-Setup Relationship: 10.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 26.131%,
-                     route: 1.929 73.869%)
-Arrival Data Path Delay: (cell: 3.082 59.259%,
-                    route: 1.736 33.386%,
-                    tC2Q: 0.382 7.355%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path3
-Path Summary:
-Slack             : 2.189
-Data Arrival Time : 7.811
-Data Required Time: 10.000
-From              : sistema/registro/Q_0_s0
-To                : led_0_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
- ======= ======= ====== ==== ======== ============== =============================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.648   1.966   tNET   RR   1        R20C36[2][B]   sistema/registro/Q_0_s0/CLK
-  3.031   0.382   tC2Q   RR   1        R20C36[2][B]   sistema/registro/Q_0_s0/Q
-  3.459   0.429   tNET   RR   1        R16C39[0][A]   led_d_0_s0/I0
-  3.722   0.262   tINS   RR   1        R16C39[0][A]   led_d_0_s0/F
-  5.256   1.534   tNET   RR   1        IOT72[A]       led_0_obuf/I
-  7.811   2.556   tINS   RR   0        IOT72[A]       led_0_obuf/O
-
-Data Required Path:
-    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
- ======== ======== ====== ==== ======== ========== ========================
-  10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT72[A]   led_0_obuf
-
-Path Statistics:
-Clock Skew: -2.648
-Setup Relationship: 10.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 25.773%,
-                     route: 1.966 74.227%)
-Arrival Data Path Delay: (cell: 2.818 54.581%,
-                    route: 1.963 38.011%,
-                    tC2Q: 0.382 7.408%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path4
-Path Summary:
-Slack             : 2.234
-Data Arrival Time : 7.766
-Data Required Time: 10.000
-From              : sw_sync_12_s0
-To                : led_7_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                 NODE
- ======= ======= ====== ==== ======== ============== ========================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  2.614   1.931   tNET   RR   1        R18C34[0][A]   sw_sync_12_s0/CLK
-  2.996   0.382   tC2Q   RR   6        R18C34[0][A]   sw_sync_12_s0/Q
-  3.789   0.792   tNET   RR   1        R2C38[0][A]    led_d_7_s0/I0
-  4.051   0.262   tINS   RR   1        R2C38[0][A]    led_d_7_s0/F
-  5.210   1.159   tNET   RR   1        IOT66[A]       led_7_obuf/I
-  7.766   2.556   tINS   RR   0        IOT66[A]       led_7_obuf/O
-
-Data Required Path:
-    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
- ======== ======== ====== ==== ======== ========== ========================
-  10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT66[A]   led_7_obuf
-
-Path Statistics:
-Clock Skew: -2.614
-Setup Relationship: 10.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.683 26.112%,
-                     route: 1.931 73.888%)
-Arrival Data Path Delay: (cell: 2.818 54.700%,
-                    route: 1.951 37.875%,
-                    tC2Q: 0.382 7.425%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path5
-Path Summary:
-Slack             : 2.244
-Data Arrival Time : 7.756
+Slack             : 1.906
+Data Arrival Time : 8.094
 Data Required Time: 10.000
 From              : sw_sync_10_s0
 To                : led_6_obuf
@@ -3337,14 +3169,14 @@ Data Arrival Path:
   2.994   0.382   tC2Q   RR   4        R17C34[2][B]   sw_sync_10_s0/Q
   3.157   0.162   tNET   RR   1        R17C35[0][A]   led_d_6_s/I2
   3.683   0.526   tINS   RR   9        R17C35[0][A]   led_d_6_s/F
-  5.201   1.518   tNET   RR   1        IOT66[B]       led_6_obuf/I
-  7.756   2.556   tINS   RR   0        IOT66[B]       led_6_obuf/O
+  5.538   1.855   tNET   RR   1        IOT72[A]       led_6_obuf/I
+  8.094   2.556   tINS   RR   0        IOT72[A]       led_6_obuf/O
 
 Data Required Path:
     AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
  ======== ======== ====== ==== ======== ========== ========================
   10.000   10.000                                   active clock edge time
-  10.000   0.000    tOut   R    0        IOT66[B]   led_6_obuf
+  10.000   0.000    tOut   R    0        IOT72[A]   led_6_obuf
 
 Path Statistics:
 Clock Skew: -2.612
@@ -3352,20 +3184,101 @@ Setup Relationship: 10.000
 Logic Level: 3
 Arrival Clock Path delay: (cell: 0.683 26.131%,
                      route: 1.929 73.869%)
-Arrival Data Path Delay: (cell: 3.082 59.907%,
-                    route: 1.680 32.658%,
-                    tC2Q: 0.382 7.435%)
+Arrival Data Path Delay: (cell: 3.082 56.218%,
+                    route: 2.018 36.804%,
+                    tC2Q: 0.382 6.978%)
 Required Clock Path Delay: (cell: 0.000 0.000%,
                      route: 0.000 0.000%)
 
-3.7.2 Hold Analysis Report
-Report Command:report_exceptions -hold -max_paths 5 -max_common_paths 1
-Timing Path Constraint[1]: set_min_delay 0.000 -to [get_ports {led[*]}]
-						Path1
+						Path2
 Path Summary:
-Slack             : 5.067
-Data Arrival Time : 5.067
-Data Required Time: 0.000
+Slack             : 1.924
+Data Arrival Time : 8.076
+Data Required Time: 10.000
+From              : sw_sync_12_s0
+To                : led_7_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                 NODE
+ ======= ======= ====== ==== ======== ============== ========================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  2.614   1.931   tNET   RR   1        R18C34[0][A]   sw_sync_12_s0/CLK
+  2.996   0.382   tC2Q   RR   6        R18C34[0][A]   sw_sync_12_s0/Q
+  3.789   0.792   tNET   RR   1        R2C38[0][A]    led_d_7_s0/I0
+  4.051   0.262   tINS   RR   1        R2C38[0][A]    led_d_7_s0/F
+  5.520   1.469   tNET   RR   1        IOT72[B]       led_7_obuf/I
+  8.076   2.556   tINS   RR   0        IOT72[B]       led_7_obuf/O
+
+Data Required Path:
+    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
+ ======== ======== ====== ==== ======== ========== ========================
+  10.000   10.000                                   active clock edge time
+  10.000   0.000    tOut   R    0        IOT72[B]   led_7_obuf
+
+Path Statistics:
+Clock Skew: -2.614
+Setup Relationship: 10.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.683 26.112%,
+                     route: 1.931 73.888%)
+Arrival Data Path Delay: (cell: 2.818 51.595%,
+                    route: 2.261 41.402%,
+                    tC2Q: 0.382 7.003%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path3
+Path Summary:
+Slack             : 1.938
+Data Arrival Time : 8.062
+Data Required Time: 10.000
+From              : sistema/registro/Q_0_s0
+To                : led_0_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
+ ======= ======= ====== ==== ======== ============== =============================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  2.648   1.966   tNET   RR   1        R20C36[2][B]   sistema/registro/Q_0_s0/CLK
+  3.031   0.382   tC2Q   RR   1        R20C36[2][B]   sistema/registro/Q_0_s0/Q
+  3.494   0.464   tNET   RR   1        R16C39[0][A]   led_d_0_s0/I0
+  4.021   0.526   tINS   RR   1        R16C39[0][A]   led_d_0_s0/F
+  5.507   1.486   tNET   RR   1        IOT66[B]       led_0_obuf/I
+  8.062   2.556   tINS   RR   0        IOT66[B]       led_0_obuf/O
+
+Data Required Path:
+    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
+ ======== ======== ====== ==== ======== ========== ========================
+  10.000   10.000                                   active clock edge time
+  10.000   0.000    tOut   R    0        IOT66[B]   led_0_obuf
+
+Path Statistics:
+Clock Skew: -2.648
+Setup Relationship: 10.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.683 25.773%,
+                     route: 1.966 74.227%)
+Arrival Data Path Delay: (cell: 3.082 56.919%,
+                    route: 1.950 36.016%,
+                    tC2Q: 0.382 7.065%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path4
+Path Summary:
+Slack             : 2.081
+Data Arrival Time : 7.919
+Data Required Time: 10.000
 From              : sistema/registro/flag_q_s0
 To                : led_4_obuf
 Launch Clk        : clk_50m:[R]
@@ -3377,36 +3290,81 @@ Data Arrival Path:
   0.000   0.000                                       active clock edge time
   0.000   0.000                                       clk_50m
   0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.675   0.675   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  1.398   0.723   tNET   RR   1        R20C38[2][B]   sistema/registro/flag_q_s0/CLK
-  1.542   0.144   tC2Q   RR   1        R20C38[2][B]   sistema/registro/flag_q_s0/Q
-  1.682   0.140   tNET   RR   1        R16C39[2][A]   led_d_4_s0/I0
-  1.886   0.204   tINS   RR   1        R16C39[2][A]   led_d_4_s0/F
-  2.530   0.644   tNET   RR   1        IOT61[B]       led_4_obuf/I
-  5.067   2.536   tINS   RR   0        IOT61[B]       led_4_obuf/O
+  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  2.648   1.966   tNET   RR   1        R20C38[2][B]   sistema/registro/flag_q_s0/CLK
+  3.031   0.382   tC2Q   RR   1        R20C38[2][B]   sistema/registro/flag_q_s0/Q
+  3.279   0.249   tNET   RR   1        R16C39[2][A]   led_d_4_s0/I0
+  3.741   0.461   tINS   RR   1        R16C39[2][A]   led_d_4_s0/F
+  5.363   1.622   tNET   RR   1        IOT68[A]       led_4_obuf/I
+  7.919   2.556   tINS   RR   0        IOT68[A]       led_4_obuf/O
 
 Data Required Path:
-   AT     DELAY   TYPE   RF   FANOUT     LOC               NODE
- ======= ======= ====== ==== ======== ========== ========================
-  0.000   0.000                                   active clock edge time
-  0.000   0.000   tOut   R    0        IOT61[B]   led_4_obuf
+    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
+ ======== ======== ====== ==== ======== ========== ========================
+  10.000   10.000                                   active clock edge time
+  10.000   0.000    tOut   R    0        IOT68[A]   led_4_obuf
 
 Path Statistics:
-Clock Skew: -1.398
-Hold Relationship: 0.000
+Clock Skew: -2.648
+Setup Relationship: 10.000
 Logic Level: 3
-Arrival Clock Path delay: (cell: 0.675 48.310%,
-                     route: 0.723 51.690%)
-Arrival Data Path Delay: (cell: 2.740 74.704%,
-                    route: 0.784 21.371%,
-                    tC2Q: 0.144 3.925%)
+Arrival Clock Path delay: (cell: 0.683 25.773%,
+                     route: 1.966 74.227%)
+Arrival Data Path Delay: (cell: 3.017 57.238%,
+                    route: 1.871 35.504%,
+                    tC2Q: 0.382 7.257%)
 Required Clock Path Delay: (cell: 0.000 0.000%,
                      route: 0.000 0.000%)
 
-						Path2
+						Path5
 Path Summary:
-Slack             : 5.092
-Data Arrival Time : 5.092
+Slack             : 2.155
+Data Arrival Time : 7.845
+Data Required Time: 10.000
+From              : sistema/registro/Q_1_s0
+To                : led_1_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
+ ======= ======= ====== ==== ======== ============== =============================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.683   0.683   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  2.604   1.922   tNET   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/CLK
+  2.987   0.382   tC2Q   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/Q
+  3.477   0.490   tNET   RR   1        R16C39[0][B]   led_d_1_s0/I0
+  3.739   0.262   tINS   RR   1        R16C39[0][B]   led_d_1_s0/F
+  5.289   1.550   tNET   RR   1        IOT66[A]       led_1_obuf/I
+  7.845   2.556   tINS   RR   0        IOT66[A]       led_1_obuf/O
+
+Data Required Path:
+    AT     DELAY    TYPE   RF   FANOUT     LOC               NODE
+ ======== ======== ====== ==== ======== ========== ========================
+  10.000   10.000                                   active clock edge time
+  10.000   0.000    tOut   R    0        IOT66[A]   led_1_obuf
+
+Path Statistics:
+Clock Skew: -2.604
+Setup Relationship: 10.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.683 26.206%,
+                     route: 1.922 73.794%)
+Arrival Data Path Delay: (cell: 2.818 53.773%,
+                    route: 2.040 38.928%,
+                    tC2Q: 0.382 7.299%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+3.7.2 Hold Analysis Report
+Report Command:report_exceptions -hold -max_paths 5 -max_common_paths 1
+Timing Path Constraint[1]: set_min_delay 0.000 -to [get_ports {led[*]}]
+						Path1
+Path Summary:
+Slack             : 5.128
+Data Arrival Time : 5.128
 Data Required Time: 0.000
 From              : sistema/registro/Q_2_s0
 To                : led_2_obuf
@@ -3424,14 +3382,14 @@ Data Arrival Path:
   1.546   0.144   tC2Q   RR   1        R20C37[3][A]   sistema/registro/Q_2_s0/Q
   1.696   0.150   tNET   RR   1        R16C39[1][A]   led_d_2_s0/I0
   1.900   0.204   tINS   RR   1        R16C39[1][A]   led_d_2_s0/F
-  2.555   0.655   tNET   RR   1        IOT68[A]       led_2_obuf/I
-  5.092   2.536   tINS   RR   0        IOT68[A]       led_2_obuf/O
+  2.591   0.691   tNET   RR   1        IOT61[A]       led_2_obuf/I
+  5.128   2.536   tINS   RR   0        IOT61[A]       led_2_obuf/O
 
 Data Required Path:
    AT     DELAY   TYPE   RF   FANOUT     LOC               NODE
  ======= ======= ====== ==== ======== ========== ========================
   0.000   0.000                                   active clock edge time
-  0.000   0.000   tOut   R    0        IOT68[A]   led_2_obuf
+  0.000   0.000   tOut   R    0        IOT61[A]   led_2_obuf
 
 Path Statistics:
 Clock Skew: -1.402
@@ -3439,100 +3397,16 @@ Hold Relationship: 0.000
 Logic Level: 3
 Arrival Clock Path delay: (cell: 0.675 48.173%,
                      route: 0.727 51.827%)
-Arrival Data Path Delay: (cell: 2.740 74.278%,
-                    route: 0.805 21.819%,
-                    tC2Q: 0.144 3.903%)
+Arrival Data Path Delay: (cell: 2.740 73.561%,
+                    route: 0.841 22.574%,
+                    tC2Q: 0.144 3.865%)
 Required Clock Path Delay: (cell: 0.000 0.000%,
                      route: 0.000 0.000%)
 
-						Path3
+						Path2
 Path Summary:
-Slack             : 5.114
-Data Arrival Time : 5.114
-Data Required Time: 0.000
-From              : sistema/registro/Q_3_s0
-To                : led_3_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
- ======= ======= ====== ==== ======== ============== =============================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.675   0.675   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  1.372   0.697   tNET   RR   1        R18C35[0][A]   sistema/registro/Q_3_s0/CLK
-  1.516   0.144   tC2Q   RR   1        R18C35[0][A]   sistema/registro/Q_3_s0/Q
-  1.770   0.254   tNET   RR   1        R16C39[1][B]   led_d_3_s0/I0
-  1.916   0.146   tINS   RR   1        R16C39[1][B]   led_d_3_s0/F
-  2.577   0.661   tNET   RR   1        IOT68[B]       led_3_obuf/I
-  5.114   2.536   tINS   RR   0        IOT68[B]       led_3_obuf/O
-
-Data Required Path:
-   AT     DELAY   TYPE   RF   FANOUT     LOC               NODE
- ======= ======= ====== ==== ======== ========== ========================
-  0.000   0.000                                   active clock edge time
-  0.000   0.000   tOut   R    0        IOT68[B]   led_3_obuf
-
-Path Statistics:
-Clock Skew: -1.372
-Hold Relationship: 0.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.675 49.226%,
-                     route: 0.697 50.774%)
-Arrival Data Path Delay: (cell: 2.682 71.696%,
-                    route: 0.915 24.455%,
-                    tC2Q: 0.144 3.849%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path4
-Path Summary:
-Slack             : 5.172
-Data Arrival Time : 5.172
-Data Required Time: 0.000
-From              : sw_sync_8_s0
-To                : led_6_obuf
-Launch Clk        : clk_50m:[R]
-Latch Clk         : N/A
-
-Data Arrival Path:
-   AT     DELAY   TYPE   RF   FANOUT       LOC                 NODE
- ======= ======= ====== ==== ======== ============== ========================
-  0.000   0.000                                       active clock edge time
-  0.000   0.000                                       clk_50m
-  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
-  0.675   0.675   tINS   RR   33       IOB12[A]       clk_ibuf/O
-  1.375   0.700   tNET   RR   1        R17C34[1][A]   sw_sync_8_s0/CLK
-  1.519   0.144   tC2Q   RR   4        R17C34[1][A]   sw_sync_8_s0/Q
-  1.617   0.098   tNET   RR   1        R17C35[0][A]   led_d_6_s/I1
-  1.821   0.204   tINS   RR   9        R17C35[0][A]   led_d_6_s/F
-  2.635   0.814   tNET   RR   1        IOT66[B]       led_6_obuf/I
-  5.172   2.536   tINS   RR   0        IOT66[B]       led_6_obuf/O
-
-Data Required Path:
-   AT     DELAY   TYPE   RF   FANOUT     LOC               NODE
- ======= ======= ====== ==== ======== ========== ========================
-  0.000   0.000                                   active clock edge time
-  0.000   0.000   tOut   R    0        IOT66[B]   led_6_obuf
-
-Path Statistics:
-Clock Skew: -1.375
-Hold Relationship: 0.000
-Logic Level: 3
-Arrival Clock Path delay: (cell: 0.675 49.127%,
-                     route: 0.700 50.873%)
-Arrival Data Path Delay: (cell: 2.740 72.185%,
-                    route: 0.912 24.022%,
-                    tC2Q: 0.144 3.793%)
-Required Clock Path Delay: (cell: 0.000 0.000%,
-                     route: 0.000 0.000%)
-
-						Path5
-Path Summary:
-Slack             : 5.238
-Data Arrival Time : 5.238
+Slack             : 5.178
+Data Arrival Time : 5.178
 Data Required Time: 0.000
 From              : sw_sync_8_s0
 To                : led_5_obuf
@@ -3550,14 +3424,14 @@ Data Arrival Path:
   1.519   0.144   tC2Q   RR   4        R17C34[1][A]   sw_sync_8_s0/Q
   1.617   0.098   tNET   RR   1        R17C35[0][B]   led_d_5_s/I0
   1.821   0.204   tINS   RR   8        R17C35[0][B]   led_d_5_s/F
-  2.701   0.880   tNET   RR   1        IOT61[A]       led_5_obuf/I
-  5.238   2.536   tINS   RR   0        IOT61[A]       led_5_obuf/O
+  2.641   0.820   tNET   RR   1        IOT68[B]       led_5_obuf/I
+  5.178   2.536   tINS   RR   0        IOT68[B]       led_5_obuf/O
 
 Data Required Path:
    AT     DELAY   TYPE   RF   FANOUT     LOC               NODE
  ======= ======= ====== ==== ======== ========== ========================
   0.000   0.000                                   active clock edge time
-  0.000   0.000   tOut   R    0        IOT61[A]   led_5_obuf
+  0.000   0.000   tOut   R    0        IOT68[B]   led_5_obuf
 
 Path Statistics:
 Clock Skew: -1.375
@@ -3565,9 +3439,135 @@ Hold Relationship: 0.000
 Logic Level: 3
 Arrival Clock Path delay: (cell: 0.675 49.127%,
                      route: 0.700 50.873%)
-Arrival Data Path Delay: (cell: 2.740 70.951%,
-                    route: 0.978 25.320%,
-                    tC2Q: 0.144 3.728%)
+Arrival Data Path Delay: (cell: 2.740 72.071%,
+                    route: 0.918 24.142%,
+                    tC2Q: 0.144 3.787%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path3
+Path Summary:
+Slack             : 5.205
+Data Arrival Time : 5.205
+Data Required Time: 0.000
+From              : sistema/registro/Q_3_s0
+To                : led_3_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
+ ======= ======= ====== ==== ======== ============== =============================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.675   0.675   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  1.372   0.697   tNET   RR   1        R18C35[0][A]   sistema/registro/Q_3_s0/CLK
+  1.516   0.144   tC2Q   RR   1        R18C35[0][A]   sistema/registro/Q_3_s0/Q
+  1.770   0.254   tNET   RR   1        R16C39[1][B]   led_d_3_s0/I0
+  2.024   0.254   tINS   RR   1        R16C39[1][B]   led_d_3_s0/F
+  2.668   0.644   tNET   RR   1        IOT61[B]       led_3_obuf/I
+  5.205   2.536   tINS   RR   0        IOT61[B]       led_3_obuf/O
+
+Data Required Path:
+   AT     DELAY   TYPE   RF   FANOUT     LOC               NODE
+ ======= ======= ====== ==== ======== ========== ========================
+  0.000   0.000                                   active clock edge time
+  0.000   0.000   tOut   R    0        IOT61[B]   led_3_obuf
+
+Path Statistics:
+Clock Skew: -1.372
+Hold Relationship: 0.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.675 49.226%,
+                     route: 0.697 50.774%)
+Arrival Data Path Delay: (cell: 2.790 72.811%,
+                    route: 0.898 23.431%,
+                    tC2Q: 0.144 3.757%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path4
+Path Summary:
+Slack             : 5.268
+Data Arrival Time : 5.268
+Data Required Time: 0.000
+From              : sistema/registro/flag_q_s0
+To                : led_4_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                     NODE
+ ======= ======= ====== ==== ======== ============== ================================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.675   0.675   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  1.398   0.723   tNET   RR   1        R20C38[2][B]   sistema/registro/flag_q_s0/CLK
+  1.542   0.144   tC2Q   RR   1        R20C38[2][B]   sistema/registro/flag_q_s0/Q
+  1.682   0.140   tNET   RR   1        R16C39[2][A]   led_d_4_s0/I0
+  1.886   0.204   tINS   RR   1        R16C39[2][A]   led_d_4_s0/F
+  2.731   0.845   tNET   RR   1        IOT68[A]       led_4_obuf/I
+  5.268   2.536   tINS   RR   0        IOT68[A]       led_4_obuf/O
+
+Data Required Path:
+   AT     DELAY   TYPE   RF   FANOUT     LOC               NODE
+ ======= ======= ====== ==== ======== ========== ========================
+  0.000   0.000                                   active clock edge time
+  0.000   0.000   tOut   R    0        IOT68[A]   led_4_obuf
+
+Path Statistics:
+Clock Skew: -1.398
+Hold Relationship: 0.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.675 48.310%,
+                     route: 0.723 51.690%)
+Arrival Data Path Delay: (cell: 2.740 70.823%,
+                    route: 0.985 25.455%,
+                    tC2Q: 0.144 3.721%)
+Required Clock Path Delay: (cell: 0.000 0.000%,
+                     route: 0.000 0.000%)
+
+						Path5
+Path Summary:
+Slack             : 5.292
+Data Arrival Time : 5.292
+Data Required Time: 0.000
+From              : sistema/registro/Q_1_s0
+To                : led_1_obuf
+Launch Clk        : clk_50m:[R]
+Latch Clk         : N/A
+
+Data Arrival Path:
+   AT     DELAY   TYPE   RF   FANOUT       LOC                   NODE
+ ======= ======= ====== ==== ======== ============== =============================
+  0.000   0.000                                       active clock edge time
+  0.000   0.000                                       clk_50m
+  0.000   0.000   tCL    RR   1        IOB12[A]       clk_ibuf/I
+  0.675   0.675   tINS   RR   33       IOB12[A]       clk_ibuf/O
+  1.372   0.697   tNET   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/CLK
+  1.516   0.144   tC2Q   RR   1        R18C35[1][A]   sistema/registro/Q_1_s0/Q
+  1.770   0.254   tNET   RR   1        R16C39[0][B]   led_d_1_s0/I0
+  1.916   0.146   tINS   RR   1        R16C39[0][B]   led_d_1_s0/F
+  2.755   0.839   tNET   RR   1        IOT66[A]       led_1_obuf/I
+  5.292   2.536   tINS   RR   0        IOT66[A]       led_1_obuf/O
+
+Data Required Path:
+   AT     DELAY   TYPE   RF   FANOUT     LOC               NODE
+ ======= ======= ====== ==== ======== ========== ========================
+  0.000   0.000                                   active clock edge time
+  0.000   0.000   tOut   R    0        IOT66[A]   led_1_obuf
+
+Path Statistics:
+Clock Skew: -1.372
+Hold Relationship: 0.000
+Logic Level: 3
+Arrival Clock Path delay: (cell: 0.675 49.226%,
+                     route: 0.697 50.774%)
+Arrival Data Path Delay: (cell: 2.682 68.440%,
+                    route: 1.093 27.886%,
+                    tC2Q: 0.144 3.674%)
 Required Clock Path Delay: (cell: 0.000 0.000%,
                      route: 0.000 0.000%)
 
