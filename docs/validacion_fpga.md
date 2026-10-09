@@ -8,4 +8,4 @@ Gowin completó síntesis, Place & Route, análisis temporal y generación del b
 
 La síntesis informa NL0002 al integrar la instancia control_logic en la lógica optimizada. Es un aviso de optimización de jerarquía: las funciones u/v siguen verificadas por simulación. No se encontraron otros avisos ni errores en la implementación.
 
-Los resultados están en `sim/`, los informes y el resumen con SHA-256 del bitstream en `fpga/reports/`, y la captura de Ubuntu en `evidencias/simulacion_ubuntu_vscode.jpg`. La prueba física se registra por separado cuando se programe la placa y se compruebe el montaje.
+Los resultados están en `sim/`, los informes y el resumen con SHA-256 del bitstream en `fpga/reports/`, y la captura de Ubuntu en `evidencias/simulacion_ubuntu_vscode.jpg`. La programación SRAM de esta versión terminó correctamente; su registro y captura están en `evidencias/programacion_sram.md` y `evidencias/programacion_sram.jpg`. La comprobación física del montaje se registra por separado.
