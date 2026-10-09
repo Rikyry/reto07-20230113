@@ -12,7 +12,7 @@ module tang_top_20230113(
     wire [3:0] Y, Q;
 
     assign rst_raw = ~rst_n;
-    // Reset al encender
+
     always @(posedge clk or posedge rst_raw) begin
         if (rst_raw)
             rst_pipe <= 2'b11;
@@ -21,7 +21,6 @@ module tang_top_20230113(
     end
     assign rst = rst_pipe[1];
 
-    // Entradas sincronizadas
     always @(posedge clk) begin
         sw_meta <= sw;
         sw_sync <= sw_meta;

@@ -18,15 +18,11 @@ set_option -gen_text_timing_rpt 1
 set_option -use_sspi_as_gpio 1
 set_option -use_cpu_as_gpio 1
 run all
-
-# Guardar resultados
 file mkdir [file join $board bitstream]
 file mkdir [file join $board reports]
 set out [file join $board gowin reto07_20230113 impl]
 file copy -force [file join $out pnr reto07_20230113.fs] [file join $board bitstream reto07_20230113.fs]
 foreach f [glob [file join $out pnr *.tr] [file join $out pnr *.rpt.txt] [file join $out pnr *.pin.html] [file join $out gwsynthesis *_syn.rpt.html]] {file copy -force $f [file join $board reports]}
-
-# Rutas relativas
 set project [file join $board gowin reto07_20230113 reto07_20230113.gprj]
 set f [open $project r]
 set xml [read $f]

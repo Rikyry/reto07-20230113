@@ -10,7 +10,7 @@ module datapath(
     wire [3:0] resta, xor_datos, mayor;
 
     assign selector = {v, u};
-    // El quinto bit guarda el acarreo
+
     assign suma = {1'b0, A} + {1'b0, B};
     assign resta = A - B;
     assign xor_datos = A ^ B;
@@ -20,7 +20,6 @@ module datapath(
                (selector == 2'b01) ? suma[3:0] :
                (selector == 2'b10) ? xor_datos : mayor;
 
-    // Indicador de cada operacion
     assign flag_comb = (selector == 2'b00) ? (A < B) :
                        (selector == 2'b01) ? suma[4] :
                        (selector == 2'b10) ? (^xor_datos) : (A == B);

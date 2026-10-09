@@ -2,4 +2,4 @@
 *.pdf binary
 *.png binary
 *.jpg binary
-*.fs -text
+*.fs binary

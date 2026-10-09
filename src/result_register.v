@@ -6,7 +6,7 @@ module result_register(
     output reg [3:0] Q,
     output reg flag_q
 );
-    // Reset con prioridad
+
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             Q <= 4'b0000;

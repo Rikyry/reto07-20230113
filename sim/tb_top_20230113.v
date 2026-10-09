@@ -10,7 +10,7 @@ module tb_top_20230113;
         .clk(clk),.rst(rst),.en(en),.u(u),.v(v),.Y(Y),
         .flag_comb(flag_comb),.Q(Q),.flag_q(flag_q));
     always #10 clk=~clk;
-    // Minterminos originales
+
     function ref_u;
         input integer n;
         begin case(n) 2,3,9,10,11,12,13,14,15:ref_u=1; default:ref_u=0; endcase end
@@ -64,16 +64,16 @@ module tb_top_20230113;
         check_q(2,0,0,"reset has priority over enable at edge");
         @(negedge clk); #2; rst=0; #1;
         check_q(3,0,0,"release reset without capture edge");
-        // Resta con prestamo
+
         {a,b,c,d}=0; A=0; B=1;
         @(posedge clk); #1; check_q(4,15,1,"capture RESTA with borrow");
-        // Suma con acarreo
+
         @(negedge clk); {a,b,c,d}=2; A=15; B=1;
         @(posedge clk); #1; check_q(5,0,1,"capture SUMA with carry");
-        // XOR con paridad impar
+
         @(negedge clk); {a,b,c,d}=1; A=0; B=7;
         @(posedge clk); #1; check_q(6,7,1,"capture XOR with odd parity");
-        // Mayor con empate
+
         @(negedge clk); {a,b,c,d}=3; A=15; B=15;
         @(posedge clk); #1; check_q(7,15,1,"capture MAYOR with tie A=B=15");
         @(negedge clk); en=0; {a,b,c,d}=2; A=1; B=1;
@@ -82,7 +82,7 @@ module tb_top_20230113;
         @(posedge clk); #1; check_q(9,2,0,"enable again and capture");
         @(negedge clk); #2; A=9; B=0; #1;
         check_q(10,2,0,"change data between edges with enable high");
-        // Reset entre flancos
+
         #1; rst=1; #1; check_q(11,0,0,"async reset clears nonzero Q between edges");
         @(negedge clk); #2; rst=0; {a,b,c,d}=3; A=9; B=0;
         @(posedge clk); #1; check_q(12,9,0,"capture again after reset, B=0");
