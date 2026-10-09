@@ -1,11 +1,12 @@
 {
   "clock_mhz": 50,
-  "fmax_mhz": 120.509,
-  "lut": 24,
+  "fmax_mhz": 248.062,
+  "lut": 43,
   "alu": 19,
   "registers": 33,
   "latches": 0,
   "setup_violations": 0,
   "hold_violations": 0,
-  "sha256_bitstream": "7f1f837cc32c529df1e2982dd0f045f01213c156b9aca09833e2bd0e94250606"
+  "optimization_warnings": 1,
+  "sha256_bitstream": "c9e01fc9a3f84267f34e8a04ed9946d6a15f44f7f0eac962fedf6f8ca14d7f83"
 }

@@ -1,47 +1,69 @@
-# Montaje del Reto 07
+# Montaje del Reto 07 con Sipeed LED×8
 
-Materiales: Tang Primer 25K con Dock 60033, protoboard, 13 interruptores (por ejemplo, dos DIP de 8 posiciones), un pulsador, siete LED, siete resistencias de 1 kΩ y cables Dupont.
+Materiales: Tang Primer 25K con Dock 60033, módulo Sipeed LED×8, protoboard, dos DIP de ocho interruptores, un pulsador, 15 jumpers macho–hembra y 14 jumpers macho–macho. Si el riel negativo está dividido, agregar un jumper para unir sus mitades.
 
-Los interruptores forman cuatro entradas de control `a,b,c,d`, cuatro bits de `A`, cuatro bits de `B` y una entrada `en`. Cada interruptor conecta su entrada a 3,3 V al cerrarse. Las resistencias pull-down internas mantienen las entradas en 0 al abrirse; no hacen falta resistencias externas en esas entradas.
+Conectar el LED×8 directamente al PMOD **J6**, con la placa apagada. Alinear los 12 contactos y las marcas de alimentación del módulo y del Dock; identificar el pin 1 antes de insertarlo. El módulo ya contiene las resistencias de los LED y se alimenta desde la placa a 3,3 V.
 
-El pulsador de reset conecta `rst_n` a GND al presionarlo. La resistencia pull-up interna mantiene el reset inactivo al soltarlo. En un pulsador de cuatro patas, usar dos contactos que se unan solamente al presionar.
+Las entradas salen del conector **J3**, que tiene pines machos. La punta hembra de cada jumper macho–hembra entra en J3; la punta macho entra en la protoboard. Conectar **J3-12 (GND)** al riel negativo. **J3-11 es +5 V y no se usa.**
 
-Cada salida conecta en este orden: pin de la FPGA, resistencia de 1 kΩ, ánodo del LED, cátodo a GND. El ánodo suele ser la pata larga; el lado plano del encapsulado identifica el cátodo. Los siete LED muestran `v`, `u`, `flag_q` y `Q[3:0]`.
+Cada interruptor conecta una entrada a GND al cerrarse. El pull-up interno mantiene el pin en alto cuando está abierto; el adaptador Verilog invierte ese nivel. Por tanto, **abierto = 0 lógico y cerrado = 1 lógico**. No se necesitan resistencias externas en las entradas ni alimentar el riel positivo.
 
-Alimentar la placa por su USB-C. Llevar el 3,3 V y GND de la placa a los rieles de la protoboard. En J4, J5 y J6, los pines 1 y 2 son 3,3 V; 3 y 4 son GND. No conectar 5 V a los pines de entrada. Identificar el pin 1 en la placa antes de contar; el dibujo es un mapa de numeración del esquema, no una vista del cableado por detrás.
+![Montaje de los jumpers](montaje_protoboard.png)
 
-![Mapa de conexión](montaje_protoboard.png)
+## Interruptores y jumpers
 
-| Entrada | Conector y pin | Pin de FPGA |
-|---|---|---|
-| a | J4-5 | C11 |
-| b | J4-6 | C10 |
-| c | J4-7 | B11 |
-| d | J4-8 | B10 |
-| A3 | J4-9 | D11 |
-| A2 | J4-10 | D10 |
-| A1 | J4-11 | G11 |
-| A0 | J4-12 | G10 |
-| B3 | J5-5 | L5 |
-| B2 | J5-6 | K5 |
-| B1 | J5-7 | K11 |
-| B0 | J5-8 | L11 |
-| en | J5-9 | E11 |
-| Reset | J5-10 | E10 |
+Este ejemplo usa una protoboard con columnas A–E y F–J, separadas por la ranura central. A–E de una misma fila están unidos; F–J de esa fila forman otro grupo independiente.
 
-| LED | Conector y pin | Pin de FPGA |
-|---|---|---|
-| v | J6-5 | H5 |
-| u | J6-6 | J5 |
-| Indicador | J6-7 | H8 |
-| Q3 (peso 8) | J6-8 | H7 |
-| Q2 (peso 4) | J6-9 | G7 |
-| Q1 (peso 2) | J6-10 | G8 |
-| Q0 (peso 1) | J6-11 | F5 |
+Colocar el primer DIP atravesando la ranura central, con contactos opuestos en E10–E17 y F10–F17. Los jumpers macho–hembra llevan las señales de J3 a A10–A17. Desde J10–J17, conectar jumpers macho–macho al riel de GND.
 
-Los nombres J4/J5/J6 en la columna de conector identifican los conectores del Dock. El nombre J5 en la columna de pin de FPGA es la bola de la señal `u`, conectada físicamente a J6-6.
+Colocar el segundo DIP atravesando la ranura en las filas 25–32. Usar cinco posiciones: señales en A25–A29, y jumpers macho–macho desde J25–J29 a GND. Las otras tres posiciones quedan libres. Identificar cada interruptor por su fila; la numeración impresa del DIP depende de su orientación.
 
-Para cargar un resultado, abrir `en`, ajustar el control y los datos, esperar 0,1 segundos y cerrar `en`. Abrir `en` de nuevo para conservar el resultado mientras se cambian las entradas. Mientras `en` siga cerrado, el registro se actualiza con el reloj. El reset borra `Q` y `flag_q`; los LED `u` y `v` siguen mostrando la operación seleccionada.
+| Entrada | Pin macho del Dock | Bola FPGA | Señal en protoboard | Jumper macho–macho |
+|---|---|---|---|---|
+| a | J3-1 | K2 | A10 | J10 → GND |
+| b | J3-2 | K1 | A11 | J11 → GND |
+| c | J3-3 | L1 | A12 | J12 → GND |
+| d | J3-4 | L2 | A13 | J13 → GND |
+| A[3] | J3-5 | K4 | A14 | J14 → GND |
+| A[2] | J3-6 | J4 | A15 | J15 → GND |
+| A[1] | J3-7 | G1 | A16 | J16 → GND |
+| A[0] | J3-8 | G2 | A17 | J17 → GND |
+| B[3] | J3-9 | L3 | A25 | J25 → GND |
+| B[2] | J3-10 | L4 | A26 | J26 → GND |
+| B[1] | J3-23 | H4 | A27 | J27 → GND |
+| B[0] | J3-24 | G4 | A28 | J28 → GND |
+| en | J3-15 | F1 | A29 | J29 → GND |
+| Reset | J3-16 | F2 | Grupo del primer contacto del pulsador | Segundo contacto → GND |
+| GND | J3-12 | — | Riel negativo | Unir las mitades si están separadas |
+
+Contar los pines desde el pin 1 marcado en J3: una columna contiene 1,3,5…39; la otra, 2,4,6…40. El diagrama muestra la numeración del esquema, no una vista por detrás. La bola FPGA J4 de A2 no es el conector J4 del Dock.
+
+## Pulsador
+
+Colocar el pulsador atravesando la ranura central, en una zona libre. La punta macho del jumper de J3-16 comparte el grupo de agujeros con un contacto del pulsador. El otro contacto se conecta a GND con un jumper macho–macho. En un pulsador de cuatro patas, escoger dos contactos que se unan solamente al presionar; verificar esta pareja con continuidad antes de alimentar.
+
+Al presionar se borran Q y flag_q. Los indicadores u/v y en siguen mostrando sus entradas actuales.
+
+## LED del módulo
+
+El LED×8 es activo en bajo. El adaptador invierte sus salidas para que **LED encendido = 1 lógico**.
+
+| LED | Señal | Pin de J6 | Bola FPGA |
+|---|---|---|---|
+| D1 | Q[0] | 11 | F5 |
+| D2 | Q[1] | 12 | G5 |
+| D3 | Q[2] | 9 | G7 |
+| D4 | Q[3] | 10 | G8 |
+| D5 | flag_q | 6 | J5 |
+| D6 | u | 5 | H5 |
+| D7 | v | 8 | H7 |
+| D8 | en_led | 7 | H8 |
+
+D1–D4 representan Q0–Q3, con pesos 1,2,4,8. Leer el resultado como **D4 D3 D2 D1**. D5 muestra préstamo, acarreo, paridad o empate según la operación. D6=u, D7=v y D8=en.
+
+## Comprobación
+
+Alimentar la placa por USB-C. Abrir en, ajustar el control y los datos, esperar 0,1 segundos y cerrar en. Abrir en de nuevo para conservar el resultado. Mientras en siga cerrado, el registro se actualiza con el reloj.
 
 | Operación | a b c d | A | B | Q esperado | Indicador |
 |---|---|---|---|---|---|
@@ -55,6 +77,6 @@ Para cargar un resultado, abrir `en`, ajustar el control y los datos, esperar 0,
 
 Estos valores son resultados esperados para comprobar el montaje; no son mediciones de la placa.
 
-Proyecto: `fpga/gowin/reto07_20230113/reto07_20230113.gprj`. Top de implementación: `tang_top_20230113`. Reloj interno de la placa: 50 MHz en E2. Bitstream: `fpga/bitstream/reto07_20230113.fs`.
+Proyecto: `fpga/gowin/reto07_20230113/reto07_20230113.gprj`. Top: `tang_top_20230113`. Dispositivo: GW5A-LV25MG121NC1/I0, revisión A. Reloj: 50 MHz en E2, restricción de 20 ns. Bitstream: `fpga/bitstream/reto07_20230113.fs`.
 
-Pines verificados con el [esquema oficial del Dock 60033](https://dl.sipeed.com/fileList/TANG/Primer_25K/02_Schematic/Tang_Primer_25K_Dock_60033_Schematic.pdf). Reloj verificado con el [esquema oficial del núcleo 52300](https://dl.sipeed.com/fileList/TANG/Primer_25K/02_Schematic/Tang_Primer_25K_52300_Schematic.pdf).
+Fuentes: [esquema oficial del Dock 60033](https://dl.sipeed.com/fileList/TANG/Primer_25K/02_Schematic/Tang_Primer_25K_Dock_60033_Schematic.pdf), [esquema del núcleo 52300](https://dl.sipeed.com/fileList/TANG/Primer_25K/02_Schematic/Tang_Primer_25K_52300_Schematic.pdf), [esquema Sipeed PMOD 8×LED](https://dl.sipeed.com/fileList/TANG/PMOD/PMOD_8XLED_Schematic.pdf) y [documentación Sipeed PMOD](https://wiki.sipeed.com/hardware/en/tang/tang-PMOD/FPGA_PMOD.html).

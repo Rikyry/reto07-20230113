@@ -3,7 +3,7 @@ module tang_top_20230113(
     input wire clk,
     input wire [12:0] sw,
     input wire rst_n,
-    output wire [6:0] led
+    output wire [7:0] led
 );
     reg [12:0] sw_meta, sw_sync;
     reg [1:0] rst_pipe = 2'b11;
@@ -22,7 +22,7 @@ module tang_top_20230113(
     assign rst = rst_pipe[1];
 
     always @(posedge clk) begin
-        sw_meta <= sw;
+        sw_meta <= ~sw;
         sw_sync <= sw_meta;
     end
 
@@ -35,5 +35,5 @@ module tang_top_20230113(
         .Q(Q), .flag_q(flag_q)
     );
 
-    assign led = {v, u, flag_q, Q};
+    assign led = ~{sw_sync[12], v, u, flag_q, Q};
 endmodule

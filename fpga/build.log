@@ -1,4 +1,4 @@
-*** GOWIN Tcl Command Line Console  *** 
+*** GOWIN Tcl Command Line Console  ***
 current working directory: C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/fpga/gowin/reto07_20230113
 add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/src/control_logic.v"
 add new file: "C:/Users/rikir/Documents/Codex/2026-09-26/abre-gowin-eda-y-configura-completamente/outputs/reto07_20230113_avances/src/datapath.v"
@@ -40,6 +40,7 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
+WARN  (NL0002) : The module "control_logic" instantiated to "control" is swept in optimizing("C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\src\top_20230113.v":15)
 [95%] Generate netlist file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\gwsynthesis\reto07_20230113.vg" completed
 [100%] Generate report file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\gwsynthesis\reto07_20230113_syn.rpt.html" completed
 GowinSynthesis finish
@@ -71,5 +72,5 @@ Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-config
 Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\pnr\reto07_20230113.rpt.txt" completed
 Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\pnr\reto07_20230113.tr.html" completed
 Generate file "C:\Users\rikir\Documents\Codex\2026-09-26\abre-gowin-eda-y-configura-completamente\outputs\reto07_20230113_avances\fpga\gowin\reto07_20230113\impl\pnr\reto07_20230113.tr" completed
-Fri Oct  9 15:34:58 2026
+Fri Oct  9 16:49:27 2026
 
