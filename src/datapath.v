@@ -12,7 +12,9 @@ module datapath(
     assign selector = {v, u};
 
     assign suma = {1'b0, A} + {1'b0, B};
-    assign resta = A - B;
+    // RESTA en magnitud: resultado de 4 bits = |A-B|.
+    // flag_comb conserva el indicador de prestamo (1 cuando A < B).
+    assign resta = (A >= B) ? (A - B) : (B - A);
     assign xor_datos = A ^ B;
     assign mayor = (A >= B) ? A : B;
 
