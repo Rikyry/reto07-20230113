@@ -6,11 +6,7 @@ foreach name {control_logic datapath result_register top_20230113 tang_top_20230
 }
 add_file [file join $board constraints tang25k.cst]
 add_file [file join $board constraints tang25k.sdc]
-foreach name {tb_top_20230113 tb_tang_top_20230113} {
-    set tb [file join $root sim ${name}.v]
-    add_file $tb
-    set_file_enable $tb false
-}
+# Testbenches se ejecutan con Icarus (make check), no se agregan a Gowin.
 set_option -top_module tang_top_20230113
 set_option -verilog_std v2001
 set_option -output_base_name reto07_20230113
