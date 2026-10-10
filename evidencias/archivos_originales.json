@@ -1,0 +1,26 @@
+[
+  {
+    "archivo": "fotos/funcionamiento_01.jpg",
+    "original": "WhatsApp Image 2026-10-09 at 8.30.44 PM.jpeg",
+    "bytes": 284057,
+    "sha256": "cc751835e08d48140b29b3a810e0dea8ab6027bbdfb8900ea76c11b7427bdf7a"
+  },
+  {
+    "archivo": "fotos/funcionamiento_02.jpg",
+    "original": "WhatsApp Image 2026-10-09 at 8.30.44 PM (1).jpeg",
+    "bytes": 304719,
+    "sha256": "e66fed5f38acdbdbfd0b8f9e89b371e3cbb43bbf9dd37547fd2d5bbbc115b4c6"
+  },
+  {
+    "archivo": "fotos/funcionamiento_03.jpg",
+    "original": "WhatsApp Image 2026-10-09 at 8.30.44 PM (2).jpeg",
+    "bytes": 267014,
+    "sha256": "3f43ec499f043e05534cbf500ebdbd4aac6d3366b1acba9435c23c135eb9d6d1"
+  },
+  {
+    "archivo": "EXPLICACION.mp4",
+    "original": "EXPLICACION.mp4",
+    "bytes": 82661904,
+    "sha256": "30b551927f0779d90c403ef82cd54dd74bcb10b14e02b8dfa4fbea9517a1c87a"
+  }
+]

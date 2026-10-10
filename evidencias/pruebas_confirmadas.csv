@@ -1,0 +1,7 @@
+operacion,abcd,A,B,en,Q,flag,lectura_esperada,lectura_reportada,confirmacion
+RESTA,0000,3,1,1,2,0,01000010,01000010,Lectura reportada
+SUMA,0010,0,0,1,0,0,01010000,01010000,Lectura reportada
+SUMA,0010,15,0,1,15,0,01011111,01011111,Lectura reportada
+SUMA,0010,15,1,1,0,1,01110000,01110000,Lectura reportada
+SUMA,0010,15,13,1,12,1,01111100,,Confirmación verbal
+XOR,0001,15,13,1,2,1,11100010,,Confirmación verbal

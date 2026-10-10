@@ -1,0 +1,300 @@
+{
+  "u": {
+    "primes": [
+      {
+        "cube": "11--",
+        "minterms": [
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "cube": "1-1-",
+        "minterms": [
+          10,
+          11,
+          14,
+          15
+        ]
+      },
+      {
+        "cube": "1--1",
+        "minterms": [
+          9,
+          11,
+          13,
+          15
+        ]
+      },
+      {
+        "cube": "-01-",
+        "minterms": [
+          2,
+          3,
+          10,
+          11
+        ]
+      }
+    ],
+    "chosen": [
+      {
+        "cube": "11--",
+        "minterms": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "essential_for": [
+          12
+        ]
+      },
+      {
+        "cube": "1--1",
+        "minterms": [
+          9,
+          11,
+          13,
+          15
+        ],
+        "essential_for": [
+          9
+        ]
+      },
+      {
+        "cube": "-01-",
+        "minterms": [
+          2,
+          3,
+          10,
+          11
+        ],
+        "essential_for": [
+          2,
+          3
+        ]
+      }
+    ],
+    "terms": 3,
+    "literals": 6
+  },
+  "v": {
+    "primes": [
+      {
+        "cube": "0--1",
+        "minterms": [
+          1,
+          3,
+          5,
+          7
+        ]
+      },
+      {
+        "cube": "-10-",
+        "minterms": [
+          4,
+          5,
+          12,
+          13
+        ]
+      },
+      {
+        "cube": "-1-1",
+        "minterms": [
+          5,
+          7,
+          13,
+          15
+        ]
+      },
+      {
+        "cube": "--11",
+        "minterms": [
+          3,
+          7,
+          11,
+          15
+        ]
+      }
+    ],
+    "chosen": [
+      {
+        "cube": "0--1",
+        "minterms": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "essential_for": [
+          1
+        ]
+      },
+      {
+        "cube": "-10-",
+        "minterms": [
+          4,
+          5,
+          12,
+          13
+        ],
+        "essential_for": [
+          12,
+          4
+        ]
+      },
+      {
+        "cube": "--11",
+        "minterms": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "essential_for": [
+          11
+        ]
+      }
+    ],
+    "terms": 3,
+    "literals": 6
+  },
+  "minterms_u": [
+    2,
+    3,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "minterms_v": [
+    1,
+    3,
+    4,
+    5,
+    7,
+    11,
+    12,
+    13,
+    15
+  ],
+  "truth": [
+    {
+      "m": 0,
+      "bits": "0000",
+      "u": 0,
+      "v": 0,
+      "operation": "RESTA"
+    },
+    {
+      "m": 1,
+      "bits": "0001",
+      "u": 0,
+      "v": 1,
+      "operation": "XOR"
+    },
+    {
+      "m": 2,
+      "bits": "0010",
+      "u": 1,
+      "v": 0,
+      "operation": "SUMA"
+    },
+    {
+      "m": 3,
+      "bits": "0011",
+      "u": 1,
+      "v": 1,
+      "operation": "MAYOR"
+    },
+    {
+      "m": 4,
+      "bits": "0100",
+      "u": 0,
+      "v": 1,
+      "operation": "XOR"
+    },
+    {
+      "m": 5,
+      "bits": "0101",
+      "u": 0,
+      "v": 1,
+      "operation": "XOR"
+    },
+    {
+      "m": 6,
+      "bits": "0110",
+      "u": 0,
+      "v": 0,
+      "operation": "RESTA"
+    },
+    {
+      "m": 7,
+      "bits": "0111",
+      "u": 0,
+      "v": 1,
+      "operation": "XOR"
+    },
+    {
+      "m": 8,
+      "bits": "1000",
+      "u": 0,
+      "v": 0,
+      "operation": "RESTA"
+    },
+    {
+      "m": 9,
+      "bits": "1001",
+      "u": 1,
+      "v": 0,
+      "operation": "SUMA"
+    },
+    {
+      "m": 10,
+      "bits": "1010",
+      "u": 1,
+      "v": 0,
+      "operation": "SUMA"
+    },
+    {
+      "m": 11,
+      "bits": "1011",
+      "u": 1,
+      "v": 1,
+      "operation": "MAYOR"
+    },
+    {
+      "m": 12,
+      "bits": "1100",
+      "u": 1,
+      "v": 1,
+      "operation": "MAYOR"
+    },
+    {
+      "m": 13,
+      "bits": "1101",
+      "u": 1,
+      "v": 1,
+      "operation": "MAYOR"
+    },
+    {
+      "m": 14,
+      "bits": "1110",
+      "u": 1,
+      "v": 0,
+      "operation": "SUMA"
+    },
+    {
+      "m": 15,
+      "bits": "1111",
+      "u": 1,
+      "v": 1,
+      "operation": "MAYOR"
+    }
+  ]
+}
