@@ -17,3 +17,7 @@ Diseñar una unidad de revisión de datos en Verilog para la Tang Primer 25K. El
 4. Configurar el proyecto Gowin, las restricciones de pines y reloj, y generar los informes de síntesis, implementación y temporización, junto con el bitstream.
 5. Programar la Tang Primer 25K y presentar fotografías y un video de la demostración.
 6. Registrar los avances con commits claros y subirlos a GitHub antes de cada revisión. Organizar la entrega en `src/`, `sim/`, `docs/`, `fpga/` y `evidencias/`.
+
+## Diagnóstico en placa
+
+Si el LED×8 no coincide con la prueba 7−14, utiliza primero la [prueba individual de pines y LED](docs/prueba_aislamiento_pines.md). Separa errores de cableado, orden visual y selección de control antes de modificar las operaciones Verilog. También está el [proyecto temporal de diagnóstico](fpga/gowin/reto07_20230113/reto07_diagnostico.gprj).
