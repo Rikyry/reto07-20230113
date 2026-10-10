@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "testbenches": [
+    {
+      "testbench": "tb_top_20230113",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2001",
+          "-Wimplicit",
+          "-Wportbind",
+          "-Wselect-range",
+          "-Wtimescale",
+          "-s",
+          "tb_top_20230113",
+          "-o",
+          "sim/tb_top_20230113.vvp",
+          "src/control_logic.v",
+          "src/datapath.v",
+          "src/result_register.v",
+          "src/tang_top_20230113.v",
+          "src/top_20230113.v",
+          "sim/tb_top_20230113.v"
+        ],
+        "exit_code": 0,
+        "warnings": 0,
+        "log": "sim/tb_top_20230113_compilacion.log"
+      },
+      "passed": true,
+      "run": {
+        "command": [
+          "vvp",
+          "sim/tb_top_20230113.vvp"
+        ],
+        "exit_code": 0,
+        "warnings": 0,
+        "log": "sim/tb_top_20230113.log"
+      },
+      "vectors": 4096,
+      "temporal": 12,
+      "total_comparisons": 16408,
+      "errors": 0
+    },
+    {
+      "testbench": "tb_tang_top_20230113",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2001",
+          "-Wimplicit",
+          "-Wportbind",
+          "-Wselect-range",
+          "-Wtimescale",
+          "-s",
+          "tb_tang_top_20230113",
+          "-o",
+          "sim/tb_tang_top_20230113.vvp",
+          "src/control_logic.v",
+          "src/datapath.v",
+          "src/result_register.v",
+          "src/tang_top_20230113.v",
+          "src/top_20230113.v",
+          "sim/tb_tang_top_20230113.v"
+        ],
+        "exit_code": 0,
+        "warnings": 0,
+        "log": "sim/tb_tang_top_20230113_compilacion.log"
+      },
+      "passed": true,
+      "run": {
+        "command": [
+          "vvp",
+          "sim/tb_tang_top_20230113.vvp"
+        ],
+        "exit_code": 0,
+        "warnings": 0,
+        "log": "sim/tb_tang_top_20230113.log"
+      }
+    }
+  ]
+}

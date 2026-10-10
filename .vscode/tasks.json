@@ -2,11 +2,158 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Simular Reto 07 en Ubuntu",
-      "type": "shell",
-      "command": "bash",
+      "label": "Verilog: lint",
+      "type": "process",
+      "command": "make",
       "args": [
-        "sim/run_tests.sh"
+        "lint",
+        "SRC_DIR=${input:srcDir}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": [
+        {
+          "owner": "verilog",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "severity": "warning",
+          "pattern": {
+            "regexp": "^%Warning(?:-[A-Z0-9_]+)?:\\s+(.+):(\\d+):(\\d+):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "message": 4
+          }
+        },
+        {
+          "owner": "verilog",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "severity": "error",
+          "pattern": {
+            "regexp": "^%Error(?:-[A-Z0-9_]+)?:\\s+(.+):(\\d+):(\\d+):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "message": 4
+          }
+        },
+        {
+          "owner": "verilog",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "pattern": {
+            "regexp": "^(.+):(\\d+):\\s*(warning|error):\\s*(.*)$",
+            "file": 1,
+            "line": 2,
+            "severity": 3,
+            "message": 4
+          }
+        }
+      ]
+    },
+    {
+      "label": "Verilog: sim",
+      "type": "process",
+      "command": "make",
+      "args": [
+        "sim",
+        "SRC_DIR=${input:srcDir}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": [
+        {
+          "owner": "verilog",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "severity": "warning",
+          "pattern": {
+            "regexp": "^%Warning(?:-[A-Z0-9_]+)?:\\s+(.+):(\\d+):(\\d+):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "message": 4
+          }
+        },
+        {
+          "owner": "verilog",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "severity": "error",
+          "pattern": {
+            "regexp": "^%Error(?:-[A-Z0-9_]+)?:\\s+(.+):(\\d+):(\\d+):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "message": 4
+          }
+        },
+        {
+          "owner": "verilog",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "pattern": {
+            "regexp": "^(.+):(\\d+):\\s*(warning|error):\\s*(.*)$",
+            "file": 1,
+            "line": 2,
+            "severity": 3,
+            "message": 4
+          }
+        }
+      ]
+    },
+    {
+      "label": "Verilog: wave",
+      "type": "process",
+      "command": "make",
+      "args": [
+        "wave"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Verilog: check",
+      "type": "process",
+      "command": "make",
+      "args": [
+        "check",
+        "SRC_DIR=${input:srcDir}"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -21,7 +168,60 @@
         "panel": "dedicated",
         "clear": true
       },
-      "problemMatcher": []
+      "problemMatcher": [
+        {
+          "owner": "verilog",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "severity": "warning",
+          "pattern": {
+            "regexp": "^%Warning(?:-[A-Z0-9_]+)?:\\s+(.+):(\\d+):(\\d+):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "message": 4
+          }
+        },
+        {
+          "owner": "verilog",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "severity": "error",
+          "pattern": {
+            "regexp": "^%Error(?:-[A-Z0-9_]+)?:\\s+(.+):(\\d+):(\\d+):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "message": 4
+          }
+        },
+        {
+          "owner": "verilog",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "pattern": {
+            "regexp": "^(.+):(\\d+):\\s*(warning|error):\\s*(.*)$",
+            "file": 1,
+            "line": 2,
+            "severity": 3,
+            "message": 4
+          }
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "srcDir",
+      "type": "promptString",
+      "description": "Ruta de los modulos Verilog, relativa al repositorio",
+      "default": "src"
     }
   ]
 }

@@ -1,0 +1,153 @@
+{
+  "project": "reto07-20230113",
+  "utc": "2026-10-10T01:05:09.634751+00:00",
+  "environment": {
+    "system": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "distribution": "Ubuntu 26.04.1 LTS",
+    "verilator": "Verilator 5.032 2025-01-01 rev (Debian 5.032-1)",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()",
+    "vvp": "Icarus Verilog runtime version 12.0 (stable) ()"
+  },
+  "lint": {
+    "passed": true,
+    "tops": [
+      {
+        "command": [
+          "verilator",
+          "--lint-only",
+          "--language",
+          "1364-2001",
+          "-Wall",
+          "--top-module",
+          "top_20230113",
+          "src/control_logic.v",
+          "src/datapath.v",
+          "src/result_register.v",
+          "src/tang_top_20230113.v",
+          "src/top_20230113.v"
+        ],
+        "exit_code": 0,
+        "warnings": 0,
+        "log": "sim/lint_top_20230113.log",
+        "top": "top_20230113",
+        "passed": true,
+        "errors": 0
+      },
+      {
+        "command": [
+          "verilator",
+          "--lint-only",
+          "--language",
+          "1364-2001",
+          "-Wall",
+          "--top-module",
+          "tang_top_20230113",
+          "src/control_logic.v",
+          "src/datapath.v",
+          "src/result_register.v",
+          "src/tang_top_20230113.v",
+          "src/top_20230113.v"
+        ],
+        "exit_code": 0,
+        "warnings": 0,
+        "log": "sim/lint_tang_top_20230113.log",
+        "top": "tang_top_20230113",
+        "passed": true,
+        "errors": 0
+      }
+    ]
+  },
+  "simulation": {
+    "passed": true,
+    "testbenches": [
+      {
+        "testbench": "tb_top_20230113",
+        "compile": {
+          "command": [
+            "iverilog",
+            "-g2001",
+            "-Wimplicit",
+            "-Wportbind",
+            "-Wselect-range",
+            "-Wtimescale",
+            "-s",
+            "tb_top_20230113",
+            "-o",
+            "sim/tb_top_20230113.vvp",
+            "src/control_logic.v",
+            "src/datapath.v",
+            "src/result_register.v",
+            "src/tang_top_20230113.v",
+            "src/top_20230113.v",
+            "sim/tb_top_20230113.v"
+          ],
+          "exit_code": 0,
+          "warnings": 0,
+          "log": "sim/tb_top_20230113_compilacion.log"
+        },
+        "passed": true,
+        "run": {
+          "command": [
+            "vvp",
+            "sim/tb_top_20230113.vvp"
+          ],
+          "exit_code": 0,
+          "warnings": 0,
+          "log": "sim/tb_top_20230113.log"
+        },
+        "vectors": 4096,
+        "temporal": 12,
+        "total_comparisons": 16408,
+        "errors": 0
+      },
+      {
+        "testbench": "tb_tang_top_20230113",
+        "compile": {
+          "command": [
+            "iverilog",
+            "-g2001",
+            "-Wimplicit",
+            "-Wportbind",
+            "-Wselect-range",
+            "-Wtimescale",
+            "-s",
+            "tb_tang_top_20230113",
+            "-o",
+            "sim/tb_tang_top_20230113.vvp",
+            "src/control_logic.v",
+            "src/datapath.v",
+            "src/result_register.v",
+            "src/tang_top_20230113.v",
+            "src/top_20230113.v",
+            "sim/tb_tang_top_20230113.v"
+          ],
+          "exit_code": 0,
+          "warnings": 0,
+          "log": "sim/tb_tang_top_20230113_compilacion.log"
+        },
+        "passed": true,
+        "run": {
+          "command": [
+            "vvp",
+            "sim/tb_tang_top_20230113.vvp"
+          ],
+          "exit_code": 0,
+          "warnings": 0,
+          "log": "sim/tb_tang_top_20230113.log"
+        }
+      }
+    ]
+  },
+  "passed": true,
+  "sha256_inputs": {
+    "src/control_logic.v": "d8ff92ddf76c892a6753c21e6595434370466508b27a1ee5ee1d53f6d15db7cf",
+    "src/datapath.v": "6a4a5b9b04ecb684357aa04d7652b408dd18de7f92b0ad3a4d6c5b6050251e6e",
+    "src/result_register.v": "fc81a6230cd46d51c7b6ef7022bd38d834b6dd1869e23a901af1c684aac4a634",
+    "src/tang_top_20230113.v": "caa1e5c0b5ca2c40336fe5c645509a217fa87bbcc3a1593e00bfe9746bd56a62",
+    "src/top_20230113.v": "04e6219794f66bc6c08d58b27b4d5bc7e221f913db9e536d23736b0ae44e12cb",
+    "sim/tb_top_20230113.v": "8d6269a2f1eb8de808aca3f74e6d6ed77ceaec909ba477efce3eb7baa87d9634",
+    "sim/tb_tang_top_20230113.v": "d1608cf058f1bbf79a27ba7ef90b069cb86b5e31b49f80f570ad9e411cf11f5e",
+    "Makefile": "fd5b6f41abb96410a96b0b3a3edefb639bbf24a2c8878b3ac401a4a576d1524f",
+    "sim/verificar.py": "9520ddf1a788a9383672ffd936965033fa4b582c5deff37cd4c03b5179a5f71b"
+  }
+}

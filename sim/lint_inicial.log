@@ -1,0 +1,19 @@
+python3 sim/verificar.py lint --src-dir "src" --sim-dir "sim"
+$ verilator --lint-only --language 1364-2001 -Wall --top-module top_20230113 src/control_logic.v src/datapath.v src/result_register.v src/tang_top_20230113.v src/top_20230113.v
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1)
+- Verilator: Built from 0.064 MB sources in 6 modules, into 0.020 MB in 5 C++ files needing 0.000 MB
+- Verilator: Walltime 0.026 s (elab=0.000, cvt=0.001, bld=0.000); cpu 0.006 s on 1 threads; alloced 8.004 MB
+$ verilator --lint-only --language 1364-2001 -Wall --top-module tang_top_20230113 src/control_logic.v src/datapath.v src/result_register.v src/tang_top_20230113.v src/top_20230113.v
+%Warning-UNUSEDSIGNAL: src/tang_top_20230113.v:11:16: Signal is not used: 'flag_comb'
+                                                    : ... note: In instance 'tang_top_20230113'
+   11 |     wire u, v, flag_comb, flag_q;
+      |                ^~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.032
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: src/tang_top_20230113.v:12:16: Signal is not used: 'Y'
+                                                    : ... note: In instance 'tang_top_20230113'
+   12 |     wire [3:0] Y, Q;
+      |                ^
+%Error: Exiting due to 2 warning(s)
+FAIL make lint
+make: *** [Makefile:9: lint] Error 1

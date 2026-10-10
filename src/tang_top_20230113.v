@@ -8,8 +8,8 @@ module tang_top_20230113(
     reg [12:0] sw_meta, sw_sync;
     reg [1:0] rst_pipe = 2'b11;
     wire rst_raw, rst;
-    wire u, v, flag_comb, flag_q;
-    wire [3:0] Y, Q;
+    wire u, v, unused_flag_comb, flag_q;
+    wire [3:0] unused_Y, Q;
 
     assign rst_raw = ~rst_n;
 
@@ -31,7 +31,7 @@ module tang_top_20230113(
         .c(sw_sync[9]), .d(sw_sync[8]),
         .A(sw_sync[7:4]), .B(sw_sync[3:0]),
         .clk(clk), .rst(rst), .en(sw_sync[12]),
-        .u(u), .v(v), .Y(Y), .flag_comb(flag_comb),
+        .u(u), .v(v), .Y(unused_Y), .flag_comb(unused_flag_comb),
         .Q(Q), .flag_q(flag_q)
     );
 

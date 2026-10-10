@@ -1,0 +1,16 @@
+[timestart] 8180000
+[size] 1100 720
+@28
+tb_top_20230113.clk
+tb_top_20230113.rst
+tb_top_20230113.en
+tb_top_20230113.u
+tb_top_20230113.v
+@22
+tb_top_20230113.A[3:0]
+tb_top_20230113.B[3:0]
+tb_top_20230113.Y[3:0]
+tb_top_20230113.Q[3:0]
+@28
+tb_top_20230113.flag_comb
+tb_top_20230113.flag_q

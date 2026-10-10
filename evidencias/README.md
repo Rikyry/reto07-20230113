@@ -33,3 +33,7 @@ Montaje en protoboard con interruptores, pulsador de reset, Tang Primer 25K y Si
 [Registro de programación SRAM](programacion_sram.md)
 
 Las lecturas de la demostración se interpretan como `v | en | flag | u | Q3 Q2 Q1 Q0`. El archivo `archivos_originales.json` registra los nombres originales, tamaños y SHA-256 de las fotos y del video.
+
+La tarea `Verilog: check` se ejecuto en VS Code con Ubuntu. El lint paso sin advertencias y ambos testbenches terminaron correctamente. [Resumen de resultados](../resultados.json).
+
+![Comprobacion de lint y simulacion en VS Code con Ubuntu](check_ubuntu_vscode.jpg)

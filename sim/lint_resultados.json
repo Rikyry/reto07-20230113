@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "tops": [
+    {
+      "command": [
+        "verilator",
+        "--lint-only",
+        "--language",
+        "1364-2001",
+        "-Wall",
+        "--top-module",
+        "top_20230113",
+        "src/control_logic.v",
+        "src/datapath.v",
+        "src/result_register.v",
+        "src/tang_top_20230113.v",
+        "src/top_20230113.v"
+      ],
+      "exit_code": 0,
+      "warnings": 0,
+      "log": "sim/lint_top_20230113.log",
+      "top": "top_20230113",
+      "passed": true,
+      "errors": 0
+    },
+    {
+      "command": [
+        "verilator",
+        "--lint-only",
+        "--language",
+        "1364-2001",
+        "-Wall",
+        "--top-module",
+        "tang_top_20230113",
+        "src/control_logic.v",
+        "src/datapath.v",
+        "src/result_register.v",
+        "src/tang_top_20230113.v",
+        "src/top_20230113.v"
+      ],
+      "exit_code": 0,
+      "warnings": 0,
+      "log": "sim/lint_tang_top_20230113.log",
+      "top": "tang_top_20230113",
+      "passed": true,
+      "errors": 0
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 Sistema: Ubuntu 26.04.1 LTS
-Kernel: Linux 6.18.33.2-microsoft-standard-WSL2
-Fecha UTC: 2026-10-09T22:44:56Z
+Kernel: Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43
+Fecha UTC: 2026-10-10T01:05:09.634751+00:00
+Verilator 5.032 2025-01-01 rev (Debian 5.032-1)
 Icarus Verilog version 12.0 (stable) ()
 Icarus Verilog runtime version 12.0 (stable) ()

@@ -1,0 +1,36 @@
+name: Verificar Verilog
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Instalar herramientas
+        run: sudo apt-get update && sudo apt-get install -y make python3 verilator iverilog
+      - name: Lint y simulacion
+        run: make check
+      - name: Guardar resultados
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: resultados-reto07
+          path: |
+            resultados.json
+            sim/*.log
+            sim/*resultados.json
+            sim/entorno_ubuntu.txt
+            sim/*.vcd
+          if-no-files-found: error
+          retention-days: 30
