@@ -9,6 +9,8 @@
 
 Diseñar una unidad de revisión de datos en Verilog para la Tang Primer 25K. El sistema debe seleccionar RESTA, SUMA, XOR o MAYOR entre dos datos de cuatro bits, generar el indicador correspondiente y guardar el resultado con habilitación y reset asíncrono.
 
+**Formato de RESTA:** salida `Q=|A-B|` (magnitud de 4 bits) y bandera de préstamo `flag_q=1` cuando `A<B`. Ejemplo: `7−14=−7` se indica con `Q=0111` y `flag_q=1`; no se representa en complemento a dos.
+
 ## Trabajo requerido
 
 1. Elaborar la tabla de verdad, los mapas de Karnaugh y las expresiones simplificadas de las funciones de control `u` y `v`.
