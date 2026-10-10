@@ -1,20 +1,30 @@
 from pathlib import Path as FilePath
-import json, re, csv, math
+import json, re, csv, math, os
 from reportlab.graphics.shapes import Drawing, Rect, String, Line, Path, Polygon, Circle
 from reportlab.graphics import renderSVG
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_CENTER
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, TableStyle, Spacer, PageBreak, Image
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, TableStyle, Spacer, PageBreak, Image, KeepTogether
 from reportlab.lib.utils import ImageReader
-from reportlab.lib.pagesizes import A4
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+
+font_dirs=[FilePath(os.environ.get('TIMES_NEW_ROMAN_DIR','C:/Windows/Fonts')), FilePath('/usr/share/fonts/truetype/msttcorefonts'), FilePath.home()/'.local/share/fonts']
+font_dir=next((d for d in font_dirs if all((d/f).exists() for f in ['times.ttf','timesbd.ttf','timesi.ttf','timesbi.ttf'])),None)
+if font_dir is None:
+ raise FileNotFoundError('Instalar Times New Roman o definir TIMES_NEW_ROMAN_DIR con sus cuatro archivos TTF.')
+for name,file in [('TNR','times.ttf'),('TNR-Bold','timesbd.ttf'),('TNR-Italic','timesi.ttf'),('TNR-BoldItalic','timesbi.ttf')]:
+ pdfmetrics.registerFont(TTFont(name,str(font_dir/file)))
+pdfmetrics.registerFontFamily('TNR',normal='TNR',bold='TNR-Bold',italic='TNR-Italic',boldItalic='TNR-BoldItalic')
 
 R=FilePath(__file__).resolve().parent.parent; D=R/'docs'
 data=json.loads((D/'logic_analysis.json').read_text()); pins=json.loads((D/'pins.json').read_text())
-navy=colors.HexColor('#15364b'); teal=colors.HexColor('#007e87'); light=colors.HexColor('#eef5f8')
-palette=[colors.HexColor(x) for x in ['#007e87','#ad5c12','#7552aa']]
-def text(d,x,y,s,size=10,color=navy): d.add(String(x,y,s,fontName='Helvetica',fontSize=size,fillColor=color))
-def line(d,x1,y1,x2,y2,color=navy,w=1): d.add(Line(x1,y1,x2,y2,strokeColor=color,strokeWidth=w))
+navy=colors.black; teal=colors.black; light=colors.white
+palette=[colors.black]*3
+def text(d,x,y,s,size=12,color=navy): d.add(String(x,y,s,fontName='TNR',fontSize=12,fillColor=colors.black))
+def line(d,x1,y1,x2,y2,color=navy,w=1,dash=None): d.add(Line(x1,y1,x2,y2,strokeColor=colors.black,strokeWidth=w,strokeDashArray=dash))
 def box(d,x,y,w,h,label):
  d.add(Rect(x,y,w,h,rx=5,ry=5,strokeColor=navy,fillColor=light)); text(d,x+8,y+h/2,label,9)
 def arrow(d,x1,y1,x2,y2):
@@ -23,14 +33,14 @@ def arrow(d,x1,y1,x2,y2):
  d.add(Polygon([x2,y2,x2-l*math.cos(ang-.5),y2-l*math.sin(ang-.5),x2-l*math.cos(ang+.5),y2-l*math.sin(ang+.5)],fillColor=navy,strokeColor=navy))
 
 def kmap(fn):
- d=Drawing(480,290); gray=[0,1,3,2]; x=100;y=58; cw=70;ch=43
- text(d,8,260,f'Mapa de Karnaugh: {fn}',15); text(d,40,226,'ab / cd',10)
+ d=Drawing(468,290); gray=[0,1,3,2]; x=100;y=58; cw=70;ch=43
+ text(d,8,260,fn); text(d,40,226,'ab / cd',10)
  for c,g in enumerate(gray): text(d,x+c*cw+27,y+4*ch+9,f'{g:02b}',11)
  for r,g in enumerate(gray):
   text(d,65,y+(3-r)*ch+16,f'{g:02b}',11)
   for c,h in enumerate(gray):
    n=4*g+h; xx=x+c*cw; yy=y+(3-r)*ch
-   d.add(Rect(xx,yy,cw,ch,strokeColor=colors.HexColor('#bccad1'),fillColor=colors.white))
+   d.add(Rect(xx,yy,cw,ch,strokeColor=colors.black,fillColor=colors.white))
    text(d,xx+5,yy+ch-10,str(n),7,colors.grey)
    text(d,xx+33,yy+14,str(int(n in data['minterms_'+fn])),14)
  for i,group in enumerate(data[fn]['chosen']):
@@ -39,18 +49,18 @@ def kmap(fn):
   for rr,cc in cells:
    xx=x+cc*cw+3+i*2; yy=y+(3-rr)*ch+3+i*2
    ww=cw-6-i*4;hh=ch-6-i*4
-   if (rr-1,cc) not in cells: line(d,xx,yy+hh,xx+ww,yy+hh,palette[i],2)
-   if (rr+1,cc) not in cells: line(d,xx,yy,xx+ww,yy,palette[i],2)
-   if (rr,cc-1) not in cells: line(d,xx,yy,xx,yy+hh,palette[i],2)
-   if (rr,cc+1) not in cells: line(d,xx+ww,yy,xx+ww,yy+hh,palette[i],2)
+   if (rr-1,cc) not in cells: line(d,xx,yy+hh,xx+ww,yy+hh,palette[i],1.2,[None,[5,3],[1,3]][i])
+   if (rr+1,cc) not in cells: line(d,xx,yy,xx+ww,yy,palette[i],1.2,[None,[5,3],[1,3]][i])
+   if (rr,cc-1) not in cells: line(d,xx,yy,xx,yy+hh,palette[i],1.2,[None,[5,3],[1,3]][i])
+   if (rr,cc+1) not in cells: line(d,xx+ww,yy,xx+ww,yy+hh,palette[i],1.2,[None,[5,3],[1,3]][i])
   term=''.join(('!' if v=='0' else '')+s for s,v in zip('abcd',group['cube']) if v!='-')
   text(d,20+i*155,27,f'G{i+1}: {term}',11,palette[i])
  return d
 
 def gates():
- d=Drawing(480,280)
- for offset,fn in [(0,'u'),(245,'v')]:
-  text(d,offset+5,255,f'Circuito de {fn}',13)
+ d=Drawing(468,280)
+ for offset,fn in [(0,'u'),(232,'v')]:
+  text(d,offset+5,255,fn)
   for i,group in enumerate(data[fn]['chosen']):
    yy=205-i*82; xx=offset+78
    terms=[(s,v) for s,v in zip('abcd',group['cube']) if v!='-']
@@ -73,18 +83,17 @@ def gates():
   p.curveTo(xx+27,yy-28,xx+40,yy-15,xx+51,yy)
   p.curveTo(xx+40,yy+15,xx+27,yy+28,xx,yy+28)
   p.curveTo(xx+12,yy+9,xx+12,yy-9,xx,yy-28);p.closePath();d.add(p)
-  text(d,xx+14,yy-3,'OR',9);arrow(d,xx+51,yy,offset+236,yy);text(d,offset+231,yy+8,fn,11)
+  text(d,xx+14,yy-3,'OR',9);arrow(d,xx+51,yy,offset+228,yy);text(d,offset+222,yy+8,fn,11)
  return d
 
 def blocks():
- d=Drawing(480,240)
- box(d,70,155,145,48,'control_logic');text(d,5,179,'a,b,c,d',10);arrow(d,45,180,70,180)
- box(d,260,155,150,48,'datapath');arrow(d,215,180,260,180);text(d,228,188,'u,v',9)
- text(d,278,225,'A[3:0], B[3:0]',10);arrow(d,335,218,335,203)
- box(d,260,55,150,48,'result_register');arrow(d,335,155,335,103);text(d,341,122,'Y, flag_comb',9)
- text(d,85,77,'clk, rst, en',10);arrow(d,150,80,260,80)
- arrow(d,410,80,478,80);text(d,415,91,'Q, flag_q',9)
- text(d,12,20,'top_20230113 instancia los tres bloques por nombre.',10)
+ d=Drawing(468,240)
+ box(d,65,155,130,48,'control_logic');text(d,0,179,'a,b,c,d');arrow(d,43,180,65,180)
+ box(d,250,155,150,48,'datapath');arrow(d,195,180,250,180);text(d,210,188,'u,v')
+ text(d,268,225,'A[3:0], B[3:0]');arrow(d,325,218,325,203)
+ box(d,250,55,150,48,'result_register');arrow(d,325,155,325,103);text(d,335,122,'Y, flag_comb')
+ text(d,88,77,'clk, rst, en');arrow(d,152,80,250,80)
+ arrow(d,400,80,464,80);text(d,410,110,'Q, flag_q')
  return d
 
 stats=json.loads((R/'fpga/reports/summary.json').read_text())
@@ -95,7 +104,7 @@ for port,label,conn,pos,ball in pins:
  if not m: raise ValueError('Missing assigned pin '+port)
  banks[port]=m.group(1)
 ff=stats['registers']; fmax=stats['fmax_mhz']
-pinrows=[['Señal','Puerto','Conector','Posición','Bola','Banco','Polaridad','I/O'], ['clk','clk','Core','Oscilador','E2','5','Reloj','LVCMOS33']]
+pinrows=[['Señal','Puerto','PMOD','Pos.','Pin','Banco','Polaridad','I/O'], ['clk','clk','Core','Osc.','E2','5','Reloj','LVCMOS33']]
 for port,label,conn,pos,ball in pins:
  pinrows.append([label,port,conn,str(pos),ball,banks[port],'activa 0','LVCMOS33'])
 
@@ -114,9 +123,9 @@ def wave():
    a=l[1:].split()
    if len(a)==2 and a[1] in ids:histories[ids[a[1]]].append((t/1000,a[0]))
  tmax=max(tt for h in histories.values() for tt,v in h);start=tmax-180;end=tmax
- d=Drawing(480,215);names=['clk','rst','en','u','v','Q','flag_q'];x0=52;w=416
+ d=Drawing(468,245);names=['clk','rst','en','u','v','Q','flag_q'];x0=52;w=416
  for i,name in enumerate(names):
-  yy=186-i*24;text(d,0,yy+1,name,9);line(d,x0,yy-3,x0+w,yy-3,colors.HexColor('#e1e6ea'))
+  yy=216-i*24;text(d,0,yy+1,name,9);line(d,x0,yy-3,x0+w,yy-3,colors.black)
   h=histories[name];prev=[v for tt,v in h if tt<=start];val=prev[-1] if prev else 'x'
   entries=[(start,val)]+[(tt,v) for tt,v in h if start<tt<end]+[(end,None)]
   for j in range(len(entries)-1):
@@ -132,28 +141,51 @@ def wave():
     yh=yy+(8 if va=='1' else -2);line(d,xx,yh,xb,yh,teal,1.3)
     if j>0:
      old=entries[j-1][1];line(d,xx,yy+(8 if old=='1' else -2),xx,yh,teal,1.2)
- for tt in range(math.ceil(start/20)*20,int(end)+1,20):text(d,x0+(tt-start)*w/(end-start)-8,9,str(tt),7)
- text(d,165,0,'Tiempo (ns) - datos reales del VCD',8)
+ for tt in range(math.ceil(start/20)*20,int(end)+1,20):text(d,x0+(tt-start)*w/(end-start)-8,25,str(tt),7)
+ text(d,165,1,'Tiempo (ns) - datos reales del VCD',8)
  return d
 renderSVG.drawToFile(wave(),str(D/'ondas_temporales.svg'))
+(D/'ondas_temporales.svg').write_bytes(((D/'ondas_temporales.svg').read_text().rstrip()+'\n').encode('utf-8'))
 
 styles=getSampleStyleSheet()
-styles.add(ParagraphStyle(name='BodyR',fontName='Helvetica',fontSize=10,leading=14,spaceAfter=8,textColor=navy))
-styles.add(ParagraphStyle(name='CodeR',fontName='Courier',fontSize=10,leading=15,spaceAfter=7,textColor=navy))
-styles.add(ParagraphStyle(name='TitleR',fontName='Helvetica-Bold',fontSize=24,leading=28,spaceAfter=18,textColor=navy))
-styles['Heading1'].textColor=navy;styles['Heading2'].textColor=teal
+styles.add(ParagraphStyle(name='BodyR',fontName='TNR',fontSize=12,leading=24,firstLineIndent=36,spaceAfter=0,spaceBefore=0,textColor=colors.black,splitLongWords=True,allowWidows=0,allowOrphans=0))
+styles.add(ParagraphStyle(name='CoverR',fontName='TNR',fontSize=12,leading=24,alignment=TA_CENTER,textColor=colors.black))
+styles.add(ParagraphStyle(name='ReferenceR',fontName='TNR',fontSize=12,leading=24,leftIndent=36,firstLineIndent=-36,spaceAfter=0,textColor=colors.black,splitLongWords=True))
 story=[]
-def p(s):story.append(Paragraph(s,styles['BodyR']))
-def h(s):story.append(Paragraph(s,styles['Heading1']))
-def tab(rows,widths=None,small=False):
- rows=[[Paragraph(str(v),ParagraphStyle(name='cell',fontName='Helvetica',fontSize=8 if small else 9,leading=11)) for v in row] for row in rows]
- t=Table(rows,colWidths=widths,repeatRows=1,hAlign='LEFT');t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),light),('GRID',(0,0),(-1,-1),.4,colors.HexColor('#b5c5ce')),('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),3 if small else 5),('BOTTOMPADDING',(0,0),(-1,-1),3 if small else 5)]));story.append(t);story.append(Spacer(1,10))
-def page():story.append(PageBreak())
 
-story.append(Paragraph('Reto 07<br/>Unidad de revisión de datos',styles['TitleR']))
-p('<b>Riky Ramos · Matrícula 20230113</b><br/>Sistemas Digitales · Verilog 2001 · Tang Primer 25K<br/>Actualización: 9 de octubre de 2026')
+def p(s):
+ s=re.sub(r'<b>([^<]+):</b>',r'\1:',s)
+ story.append(Paragraph(s,styles['BodyR']))
+
+def h(s):
+ pass
+
+def tab(rows,widths=None,small=False):
+ width=468
+ widths=[v*width/sum(widths) for v in widths] if widths else None
+ cells=[]
+ for ri,row in enumerate(rows):
+  cells.append([Paragraph(str(v),ParagraphStyle(name='cell',fontName='TNR-Bold' if ri==0 else 'TNR',fontSize=12,leading=15,alignment=TA_CENTER if ri==0 or ci>0 else 0,splitLongWords=True)) for ci,v in enumerate(row)])
+ t=Table(cells,colWidths=widths,repeatRows=1,hAlign='LEFT')
+ t.setStyle(TableStyle([('LINEABOVE',(0,0),(-1,0),0.7,colors.black),('LINEBELOW',(0,0),(-1,0),0.7,colors.black),('LINEBELOW',(0,-1),(-1,-1),0.7,colors.black),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('LEFTPADDING',(0,0),(-1,-1),4),('RIGHTPADDING',(0,0),(-1,-1),4),('TOPPADDING',(0,0),(-1,-1),4),('BOTTOMPADDING',(0,0),(-1,-1),4)]))
+ if len(rows)>=10:
+  t.setStyle(TableStyle([('NOSPLIT',(0,-3),(-1,-1))]))
+ story.append(Spacer(1,6))
+ story.append(t if len(rows)>=10 else KeepTogether([t]))
+ story.append(Spacer(1,6))
+
+def page():
+ pass
+
+story.append(Spacer(1,120))
+story.append(Paragraph('<b>Unidad de revisión de datos en la Tang Primer 25K</b>',styles['CoverR']))
+story.append(Spacer(1,24))
+for item in ['Riky Ramos','Matrícula 20230113','ITLA','Sistemas Digitales','Reto 07','9 de octubre de 2026']:
+ story.append(Paragraph(item,styles['CoverR']))
+story.append(PageBreak())
+
 h('Especificación y estado')
-p('Dos operandos sin signo de 4 bits A y B se transforman según el selector {v,u}. El control procede de las cuatro variables a,b,c,d. Q y flag_q almacenan la salida cuando en=1; rst es asíncrono y activo en 1. Las salidas combinacionales continúan respondiendo durante reset.')
+p('El proyecto consiste en una unidad de revisión de datos que recibe dos operandos sin signo de 4 bits, A y B, y los transforma según el selector {v,u}. El control procede de las cuatro variables a,b,c,d. Q y flag_q almacenan la salida cuando en=1; rst es asíncrono y activo en 1. Las salidas combinacionales continúan respondiendo durante reset. El funcionamiento corresponde a la variante del Reto 07 (ITLA, s. f.).')
 tab([['Selector {v,u}','Operación','Resultado Y','Indicador'],['00','RESTA','(A-B) módulo 16','Préstamo: A &lt; B'],['01','SUMA','(A+B) módulo 16','Acarreo: A+B &gt; 15'],['10','XOR','A XOR B','Paridad impar de Y'],['11','MAYOR','máximo(A,B)','Empate: A=B']],[80,75,165,170])
 p('La simulación comprobó 4096 vectores y 12 casos temporales sin errores. Gowin completó síntesis, ubicación, ruteo, análisis temporal y generación del bitstream. La carga SRAM terminó correctamente. Las pruebas en placa confirmaron resultados de RESTA, SUMA y XOR; las fotografías y el video de explicación acompañan este informe.')
 story.append(blocks());page()
@@ -173,7 +205,7 @@ for fn in ['u','v']:
  p(f'<b>{fn} = {terms}</b>. Tres grupos de cuatro celdas, dos literales por grupo.')
 page()
 h('Justificación y circuito de control')
-tab([['Función','Grupo','Minterms agrupados','Celdas que lo hacen esencial'],['u','ab','12,13,14,15','12'],['u','ad','9,11,13,15','9'],['u','!bc','2,3,10,11','2 y 3'],['v','!ad','1,3,5,7','1'],['v','b!c','4,5,12,13','4 y 12'],['v','cd','3,7,11,15','11']],[45,65,150,230])
+tab([['Función','Grupo','Minterms agrupados','Celdas que lo hacen esencial'],['u','ab','12,13,14,15','12'],['u','ad','9,11,13,15','9'],['u','!bc','2,3,10,11','2 y 3'],['v','!ad','1,3,5,7','1'],['v','b!c','4,5,12,13','4 y 12'],['v','cd','3,7,11,15','11']],[60,55,145,208])
 p('En u, !bc cruza los bordes superior e inferior: las filas ab=00 y 10 son adyacentes en el mapa. Los implicantes primos ac de u y bd de v son redundantes. Cada función tiene tres implicantes esenciales: ninguna cobertura con menos de tres productos puede cubrir las celdas esenciales. Los seis literales alcanzan el segundo criterio de mínima SOP.')
 tab([['Forma','Términos por función','Literales por función'],['Canónica','9','36'],['Simplificada','3','6']],[170,150,170])
 p('Este conteo expresa productos y variables booleanas; no es el número de LUT de la FPGA. NOT se aplica a las entradas indicadas; tres AND alimentan un OR por función.')
@@ -196,17 +228,17 @@ story.append(wave())
 p('Figura extraída de sim/top_20230113.vcd: ventanas finales de captura, retención y reset. Los logs y VCD acompañan las pruebas; las ondas complementan las comparaciones automáticas. El test del adaptador verifica sincronización, polaridad y liberación del reset.');page()
 
 h('Mapa de pines y montaje')
-p('Mapa verificado con el esquema Sipeed del Dock 60033, hoja 1, y el informe de pines de Gowin. Todos los puertos físicos tienen ubicación explícita y estándar LVCMOS33. El reloj es E2, banco 5, oscilador Y1100 de 50 MHz del core 52300; periodo SDC=20 ns.')
-tab(pinrows,[48,60,52,42,37,35,72,62],True)
+p('El mapa de pines se verificó con el esquema del Dock 60033 y el informe de Gowin (Sipeed, s. f.-b). Todos los puertos físicos tienen ubicación explícita y estándar LVCMOS33. El reloj es E2, banco 5, oscilador Y1100 de 50 MHz del core 52300; periodo SDC=20 ns (Sipeed, s. f.-a).')
+tab(pinrows,[48,60,52,42,37,40,72,82],True)
 p('Los interruptores se conectan a las entradas hembra J4/J5 con jumpers macho-macho; al cerrarlos unen la entrada a GND. El pull-up interno y la inversión del adaptador producen abierto=0 lógico y cerrado=1 lógico. El pulsador une E10 a GND mientras se presiona. Los rieles de tierra de la protoboard comparten GND con la FPGA.')
-p('El Sipeed LED×8 se conecta directamente a J6 y contiene las resistencias de sus LED. En J4/J5/J6, 1/2 son 3,3 V y 3/4 son GND. GPIO a 3,3 V, estándar LVCMOS33. Q0 está en J5, Q1 en H5, Q2 en H8 y Q3 en H7; flag en G7, u en G8, v en F5 y enable en G5.')
+p('El Sipeed LED×8 se conecta directamente a J6 y contiene las resistencias de sus LED (Sipeed, s. f.-c). En J4/J5/J6, 1/2 son 3,3 V y 3/4 son GND. GPIO a 3,3 V, estándar LVCMOS33. Q0 está en J5, Q1 en H5, Q2 en H8 y Q3 en H7; flag en G7, u en G8, v en F5 y enable en G5.')
 p('El montaje utiliza 22 GPIO externos: 13 interruptores, un reset y ocho salidas LED; el reloj procede del oscilador de la placa. El mapa de pines corresponde al bitstream cargado.');page()
 
 h('Implementación y pruebas en placa')
 tab([['Métrica','Resultado comprobado'],['Herramienta','Gowin V1.9.11.03 Education'],['Dispositivo','GW5A-LV25MG121NC1/I0, revisión A'],['LUT / ALU',f"{stats['lut']} LUT / {stats['alu']} ALU"],['Registros / latches',f"{ff} registros / 0 latches"],['Reloj / Fmax',f"50 MHz requerido / {fmax} MHz estimado por STA"],['Setup / hold','0 endpoints violados; TNS=0'],['Bitstream','fpga/bitstream/reto07_20230113.fs']],[180,310])
 p('Las excepciones SDC excluyen solamente interruptores externos hacia sw_meta y reset externo hacia rst_pipe. Los caminos entre etapas y hacia el registro permanecen temporizados. Las salidas LED usan un presupuesto de 10 ns; no tienen reloj externo de captura. Se habilitan CPU/SSPI como GPIO para E2. JTAG conserva programación.')
 p('Gowin Programmer detectó GW5A-25A y completó SRAM Program con User Code 0x0000A3AE y Status Code 0x76026238. La captura está en evidencias/programacion_sram.jpg. La carga SRAM es volátil; el archivo cargado está conservado en fpga/bitstream/.')
-p('Las siguientes lecturas fueron comunicadas o confirmadas durante la verificación del montaje. El orden es v, en, flag, u, Q3, Q2, Q1, Q0. Las fotos documentan el montaje y los estados de los LED; no se les asigna una operación a partir de la posición de interruptores sin rotular.')
+p('En las pruebas del montaje se compararon las lecturas de los LED con los resultados esperados. El orden de lectura es v, en, flag, u, Q3, Q2, Q1, Q0. Las fotografías muestran el circuito armado y diferentes estados de las salidas.')
 tab([['Prueba','A','B','Q / flag','Lectura','Confirmación'],
  ['RESTA','3','1','2 / 0','01000010','Lectura reportada'],
  ['SUMA','0','0','0 / 0','01010000','Lectura reportada'],
@@ -215,9 +247,8 @@ tab([['Prueba','A','B','Q / flag','Lectura','Confirmación'],
  ['SUMA con acarreo','15','13','12 / 1','01111100','Confirmación verbal'],
  ['XOR paridad impar','15','13','2 / 1','11100010','Confirmación verbal']], [107,26,26,55,77,117], True)
 p('Para repetir: ajustar control y operandos con en=0, esperar 0,1 s y activar en. La retención conserva Q y flag_q al deshabilitar; reset borra ambos y tiene prioridad. Las verificaciones automáticas incluyen MAYOR, empate, préstamo, retención y reset con en=0 y en=1.')
-p('El video original de explicación está en evidencias/EXPLICACION.mp4. <link href="https://raw.githubusercontent.com/Rikyry/reto07-20230113/main/evidencias/EXPLICACION.mp4" color="#007e87">Ver o descargar la explicación</link>. Las fotos originales están en evidencias/fotos/.')
-p('<b>Recursos y herramientas:</b> enunciado Reto_07_20230113.pdf (6 páginas); esquemas oficiales Sipeed core 52300 y Dock 60033; ejemplos oficiales TangPrimer-25K-example; manuales Gowin incluidos; Icarus Verilog para simulación; Python y ReportLab para análisis e informe; Codex como asistencia de preparación. El estudiante debe revisar, explicar y poder modificar el diseño.')
-p('Documentación de placa: <link href="https://wiki.sipeed.com/hardware/en/tang/tang-primer-25k/primer-25k.html" color="#007e87">Sipeed Tang Primer 25K</link>. Esquema: <link href="https://dl.sipeed.com/fileList/TANG/Primer_25K/02_Schematic/Tang_Primer_25K_Dock_60033_Schematic.pdf" color="#007e87">Dock 60033</link>. Reloj: <link href="https://github.com/sipeed/TangPrimer-25K-example/blob/main/pmod_led/src/pmod_led.sdc" color="#007e87">ejemplo SDC oficial</link>. Consulta: 3 de octubre de 2026.')
+p('El video original de explicación está en evidencias/EXPLICACION.mp4. <link href="https://raw.githubusercontent.com/Rikyry/reto07-20230113/main/evidencias/EXPLICACION.mp4" color="black">Ver o descargar la explicación</link>. Las fotos originales están en evidencias/fotos/.')
+p('Para la simulación se utilizó Icarus Verilog en Ubuntu desde VS Code; la implementación y la programación se realizaron con Gowin. El informe se generó con Python y ReportLab. Para la preparación del proyecto y la documentación se contó con asistencia de Codex.')
 
 photos=[
  ('funcionamiento_01.jpg','Fotografía 1 Montaje general','Protoboard con interruptores de control y datos, habilitación y pulsador de reset; Tang Primer 25K alimentada por USB y módulo Sipeed LED×8 conectado. Los LED de salida aparecen apagados en esta toma.'),
@@ -225,17 +256,28 @@ photos=[
  ('funcionamiento_03.jpg','Fotografía 3 Panel encendido','Vista del montaje con los ocho LED de salida encendidos. La fotografía conserva el cableado de la protoboard, el pulsador y la conexión del módulo LED×8.')
 ]
 for name,title,caption in photos:
- page(); h(title); p(caption)
+ story.append(PageBreak()); p(caption)
  path=R/'evidencias/fotos'/name
  iw,ih=ImageReader(str(path)).getSize()
- scale=min(440/iw,580/ih)
+ scale=min(375/iw,500/ih)
  story.append(Image(str(path),width=iw*scale,height=ih*scale))
- story.append(Spacer(1,9))
- p('Evidencia original: evidencias/fotos/'+name)
 
 
-def footer(c,doc):
- c.setStrokeColor(colors.HexColor('#cbd7dd'));c.line(45,39,550,39);c.setFont('Helvetica',8);c.setFillColor(navy)
- c.drawString(45,26,'Riky Ramos | 20230113 | Reto 07');c.drawRightString(550,26,f'Página {doc.page}')
-SimpleDocTemplate(str(D/'informe_20230113_reto07.pdf'),pagesize=A4,rightMargin=45,leftMargin=45,topMargin=40,bottomMargin=52,title='Reto 07 - Riky Ramos - 20230113',author='Riky Ramos').build(story,onFirstPage=footer,onLaterPages=footer)
+
+story.append(PageBreak())
+p('Las fuentes consultadas para la especificación y el montaje del proyecto fueron las siguientes.')
+refs=[
+ 'ITLA. (s. f.). <i>Reto 07 Unidad de revisión de datos</i> [Material de la asignatura Sistemas Digitales].',
+ 'Sipeed. (s. f.-a). <i>Tang Primer 25K 52300 schematic</i> [Esquema]. https://dl.sipeed.com/fileList/TANG/Primer_25K/02_Schematic/Tang_Primer_25K_52300_Schematic.pdf',
+ 'Sipeed. (s. f.-b). <i>Tang Primer 25K Dock 60033 schematic</i> [Esquema]. https://dl.sipeed.com/fileList/TANG/Primer_25K/02_Schematic/Tang_Primer_25K_Dock_60033_Schematic.pdf',
+ 'Sipeed. (s. f.-c). <i>PMOD 8XLED schematic</i> [Esquema]. https://dl.sipeed.com/fileList/TANG/PMOD/PMOD_8XLED_Schematic.pdf'
+]
+for ref in refs:
+ story.append(Paragraph(ref,styles['ReferenceR']))
+
+def header(c,doc):
+ c.setFillColor(colors.black);c.setFont('TNR',12)
+ c.drawRightString(540,756,str(doc.page))
+
+SimpleDocTemplate(str(D/'informe_20230113_reto07.pdf'),pagesize=letter,rightMargin=72,leftMargin=72,topMargin=72,bottomMargin=72,title='Unidad de revisión de datos en la Tang Primer 25K',author='Riky Ramos').build(story,onFirstPage=header,onLaterPages=header)
 print('Created',D/'informe_20230113_reto07.pdf')
