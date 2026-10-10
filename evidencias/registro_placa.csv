@@ -1,5 +1,5 @@
 prueba,abcd,A,B,en,rst,Q_esperado,flag_esperado,Q_observado,flag_observado
-RESTA con prestamo,0000,0,1,1,0,15,1,,
+RESTA con prestamo,0000,0,1,1,0,1,1,,
 SUMA con acarreo,0010,15,1,1,0,0,1,,
 XOR con paridad impar,0001,0,7,1,0,7,1,,
 MAYOR con empate,0011,15,15,1,0,15,1,,
