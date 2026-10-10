@@ -62,15 +62,15 @@ module tb_tang_top_20230113;
         repeat(5) @(posedge clk); #1;
         if (dut.sw_sync !== {1'b1,4'b0000,4'b0111,4'b1110})
             $fatal(1,"7-14: logical inputs were not synchronized correctly");
-        if (dut.Q !== 4'b1001 || dut.flag_q !== 1'b1 || dut.u !== 1'b0 || dut.v !== 1'b0)
-            $fatal(1,"7-14: expected subtraction Q=1001 flag=1 u=v=0");
-        if (led !== 8'b01100110 || panel_on !== 8'b10011001)
-            $fatal(1,"7-14: expected active-low LED pins 01100110 and L1-L8 10011001");
+        if (dut.Q !== 4'b0111 || dut.flag_q !== 1'b1 || dut.u !== 1'b0 || dut.v !== 1'b0)
+            $fatal(1,"7-14: expected subtraction magnitude Q=0111 flag=1 u=v=0");
+        if (led !== 8'b01101000 || panel_on !== 8'b11101001)
+            $fatal(1,"7-14: expected active-low LED pins 01101000 and L1-L8 11101001");
         @(negedge clk); sw[12]=1'b1; // enable logico desactivado
         repeat(3) @(posedge clk); #1;
-        if (led !== 8'b11100110 || panel_on !== 8'b10011000)
+        if (led !== 8'b11101000 || panel_on !== 8'b11101000)
             $fatal(1,"7-14: disable must retain Q/flag and turn off enable LED");
-        $display("PASS physical 7-14: Q=1001, borrow=1, LED pins=01100110, L1-L8=10011001");
+        $display("PASS physical 7-14: Q=0111, borrow=1, LED pins=01101000, L1-L8=11101001");
         $display("PASS board adapter: J5 Q0, H5 Q1, H8 Q2, H7 Q3; synchronization, retention, reset, 0-0 and 1-0 with G10/E11");
         $finish;
     end
