@@ -1,5 +1,7 @@
 # Prueba de aislamiento de pines: LED y DIP (7 - 14)
 
+**Convención de la resta actualizada:** Q=|A−B| en cuatro bits y flag de préstamo=1 si A<B. La magnitud no es el resultado en complemento a dos.
+
 El resultado observado **01100101** no basta para determinar si el fallo es del código o del montaje: es necesario confirmar el orden de lectura (LED encendido = 1 frente a nivel eléctrico = 0) y el caso ensayado. El módulo `tang_top_20230113` contiene `assign led = ~{sw_sync[12], v, u, flag_q, Q};`. No se cambió esta asignación arbitrariamente.
 
 ## Precauciones y montaje fijo
@@ -28,9 +30,9 @@ El resultado observado **01100101** no basta para determinar si el fallo es del 
 
 | Cerrar a GND | B | Q esperado | Préstamo | L1–L8 (1=encendido) |
 |---|---|---|---|---|
-| E11 + L11 | 1 | 1111 | 1 | 11111001 |
-| E11 + K11 | 2 | 1110 | 1 | 01111001 |
-| E11 + K5 | 4 | 1100 | 1 | 00111001 |
+| E11 + L11 | 1 | 0001 | 1 | 10001001 |
+| E11 + K11 | 2 | 0010 | 1 | 01001001 |
+| E11 + K5 | 4 | 0100 | 1 | 00101001 |
 | E11 + L5 | 8 | 1000 | 1 | 00011001 |
 
 ## Prueba de selector (A=B=0)
@@ -47,10 +49,10 @@ Enlaza a GND **D10, G11, G10** para A=0111; **L5, K5, K11** para B=1110; y **E11
 | control abcd | `0000` |
 | A | `0111` = 7 |
 | B | `1110` = 14 |
-| Q / préstamo | `1001` / `1` |
-| `led[7:0]`, niveles eléctricos | `01100110` |
-| L1–L8, LED encendidos | `10011001` |
+| Q / préstamo | `0111` / `1` |
+| `led[7:0]`, niveles eléctricos | `01101000` |
+| L1–L8, LED encendidos | `11101001` |
 
-**Interpretación alternativa para tu lectura 01100101:** si ese valor procede de un analizador lógico y corresponde a los *niveles eléctricos led[7:0]*, representa Q=`1010` (10), `flag=1`, `u=v=0`, `en=1`. Eso sería compatible, por ejemplo, con haber conectado A=8 y B=14, no con A=7. Si `01100101` representa visualmente las luces L1–L8 (1=encendido), esta interpretación **no aplica** y hay que usar las pruebas de aislamiento anteriores.
+**Interpretación alternativa para tu lectura 01100101:** si ese valor procede de un analizador lógico y corresponde a los *niveles eléctricos led[7:0]*, representa Q=`1010` (10), `flag=1`, `u=v=0`, `en=1`. Con la resta en magnitud eso podría representar una diferencia de 10; no equivale a A=7 y B=14. Si `01100101` representa visualmente las luces L1–L8 (1=encendido), esta interpretación **no aplica** y hay que usar las pruebas de aislamiento anteriores.
 
 Si no coinciden las pruebas de A/B, abre el proyecto alterno `reto07_diagnostico.gprj` para ver directamente el nivel lógico sincronizado de las entradas, sin depender de la ALU. No cambies el orden del código hasta detectar concretamente qué pin difiere.
