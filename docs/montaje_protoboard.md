@@ -65,6 +65,8 @@ Leer los ocho LED como **Q0 Q1 Q2 Q3 flag u v en**. L1–L4 representan el resul
 
 ## Comprobación
 
+En RESTA, **Q muestra el valor absoluto |A−B|**; cuando A<B el indicador de préstamo vale 1. Por ejemplo, 7−14=−7 se presenta como Q=0111 y flag=1. No se utiliza complemento a dos para codificar el resultado de resta.
+
 Alimentar la placa por USB-C. Abrir en, ajustar el control y los datos, esperar 0,1 segundos y cerrar en. Abrir en de nuevo para conservar el resultado. Mientras en siga cerrado, el registro se actualiza con el reloj.
 
 | Operación | a b c d | A | B | Q esperado | Indicador |
@@ -74,8 +76,9 @@ Alimentar la placa por USB-C. Abrir en, ajustar el control y los datos, esperar 
 | XOR | 0 0 0 1 | 0101 (5) | 0011 (3) | 0110 (6) | 0 |
 | MAYOR | 0 0 1 1 | 0101 (5) | 0011 (3) | 0101 (5) | 0 |
 | SUMA con acarreo | 0 0 1 0 | 1111 (15) | 0001 (1) | 0000 (0) | 1 |
-| RESTA con préstamo | 0 0 0 0 | 0000 (0) | 0001 (1) | 1111 (15) | 1 |
+| RESTA con préstamo | 0 0 0 0 | 0000 (0) | 0001 (1) | 0001 (1, magnitud) | 1 |
 | MAYOR con empate | 0 0 1 1 | 0111 (7) | 0111 (7) | 0111 (7) | 1 |
+| RESTA negativa (7−14) | 0 0 0 0 | 0111 (7) | 1110 (14) | 0111 (7, magnitud) | 1 |
 
 Estos valores son resultados esperados para comprobar el montaje; no son mediciones de la placa.
 
