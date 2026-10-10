@@ -1,5 +1,7 @@
 # Informe del Reto 07
 
+**Versión:** el PDF existente se generó antes del cambio a RESTA en magnitud (`Q=|A−B|` con préstamo). No debe usarse como evidencia de la versión corregida sin regenerarlo después de ejecutar las nuevas pruebas y recompilar GOWIN.
+
 El informe incluye tabla de verdad, Karnaugh, circuito, módulos, simulación, mapa de pines, implementación y las fotografías del montaje. El video está enlazado desde el informe y desde `evidencias/README.md`.
 
 Para regenerarlo, ejecutar primero las pruebas en Ubuntu desde VS Code o con `bash sim/run_tests.sh`; después ejecutar `python docs/generar_informe.py` con ReportLab y Pillow instalados. El generador utiliza el VCD de la simulación, los informes de Gowin, el análisis lógico y las tres fotos de `evidencias/fotos/`.
