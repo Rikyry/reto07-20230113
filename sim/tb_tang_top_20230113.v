@@ -55,6 +55,22 @@ module tb_tang_top_20230113;
         @(negedge clk); rst_n=0; #1;
         if(led!==8'hff || panel_on!==8'h00)
             $fatal(1,"reset with enable off must clear result");
+        // Caso reportado en la placa: control=0000, A=0111, B=1110, enable=1.
+        // Conexion fisica activa en bajo: 0V implica bit logico 1.
+        @(negedge clk); rst_n=1;
+        sw=~{1'b1,4'b0000,4'b0111,4'b1110};
+        repeat(5) @(posedge clk); #1;
+        if (dut.sw_sync !== {1'b1,4'b0000,4'b0111,4'b1110})
+            $fatal(1,"7-14: logical inputs were not synchronized correctly");
+        if (dut.Q !== 4'b1001 || dut.flag_q !== 1'b1 || dut.u !== 1'b0 || dut.v !== 1'b0)
+            $fatal(1,"7-14: expected subtraction Q=1001 flag=1 u=v=0");
+        if (led !== 8'b01100110 || panel_on !== 8'b10011001)
+            $fatal(1,"7-14: expected active-low LED pins 01100110 and L1-L8 10011001");
+        @(negedge clk); sw[12]=1'b1; // enable logico desactivado
+        repeat(3) @(posedge clk); #1;
+        if (led !== 8'b11100110 || panel_on !== 8'b10011000)
+            $fatal(1,"7-14: disable must retain Q/flag and turn off enable LED");
+        $display("PASS physical 7-14: Q=1001, borrow=1, LED pins=01100110, L1-L8=10011001");
         $display("PASS board adapter: J5 Q0, H5 Q1, H8 Q2, H7 Q3; synchronization, retention, reset, 0-0 and 1-0 with G10/E11");
         $finish;
     end
