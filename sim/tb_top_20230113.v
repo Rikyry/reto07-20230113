@@ -25,7 +25,7 @@ module tb_top_20230113;
         begin
             eu=ref_u(ctrl); ev=ref_v(ctrl);
             case ({ev,eu})
-                0:begin val=(x-z+16)%16; ef=(x<z); end
+                0:begin val=(x>=z)?(x-z):(z-x); ef=(x<z); end
                 1:begin val=(x+z)%16; ef=(x+z>15); end
                 2:begin val=x^z; par=0; for(j=0;j<4;j=j+1) par=par+((val>>j)&1); ef=(par%2); end
                 3:begin val=(x>z)?x:z; ef=(x==z); end
@@ -66,7 +66,7 @@ module tb_top_20230113;
         check_q(3,0,0,"release reset without capture edge");
 
         {a,b,c,d}=0; A=0; B=1;
-        @(posedge clk); #1; check_q(4,15,1,"capture RESTA with borrow");
+        @(posedge clk); #1; check_q(4,1,1,"capture RESTA magnitude with borrow");
 
         @(negedge clk); {a,b,c,d}=2; A=15; B=1;
         @(posedge clk); #1; check_q(5,0,1,"capture SUMA with carry");
